@@ -1,0 +1,13 @@
+c:\users\krzysiek\documents\visual studio 2013\Projects\Projekt_LOL\Projekt_LOL\bin\Debug\Projekt_LOL.exe.config
+c:\users\krzysiek\documents\visual studio 2013\Projects\Projekt_LOL\Projekt_LOL\bin\Debug\Projekt_LOL.exe
+c:\users\krzysiek\documents\visual studio 2013\Projects\Projekt_LOL\Projekt_LOL\bin\Debug\Projekt_LOL.pdb
+c:\users\krzysiek\documents\visual studio 2013\Projects\Projekt_LOL\Projekt_LOL\obj\Debug\Projekt_LOL.csprojResolveAssemblyReference.cache
+c:\users\krzysiek\documents\visual studio 2013\Projects\Projekt_LOL\Projekt_LOL\obj\Debug\Projekt_LOL.Form1.resources
+c:\users\krzysiek\documents\visual studio 2013\Projects\Projekt_LOL\Projekt_LOL\obj\Debug\Projekt_LOL.Properties.Resources.resources
+c:\users\krzysiek\documents\visual studio 2013\Projects\Projekt_LOL\Projekt_LOL\obj\Debug\Projekt_LOL.csproj.GenerateResource.Cache
+c:\users\krzysiek\documents\visual studio 2013\Projects\Projekt_LOL\Projekt_LOL\obj\Debug\Projekt_LOL.exe
+c:\users\krzysiek\documents\visual studio 2013\Projects\Projekt_LOL\Projekt_LOL\obj\Debug\Projekt_LOL.pdb
+c:\users\krzysiek\documents\visual studio 2013\Projects\Projekt_LOL\Projekt_LOL\bin\Debug\Newtonsoft.Json.dll
+c:\users\krzysiek\documents\visual studio 2013\Projects\Projekt_LOL\Projekt_LOL\bin\Debug\Newtonsoft.Json.xml
+c:\users\krzysiek\documents\visual studio 2013\Projects\Projekt_LOL\Projekt_LOL\bin\Debug\baza.mdf
+c:\users\krzysiek\documents\visual studio 2013\Projects\Projekt_LOL\Projekt_LOL\bin\Debug\baza_log.ldf

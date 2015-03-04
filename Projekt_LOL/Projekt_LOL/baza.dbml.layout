@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 13" name="baza">
+  <DataContextMoniker Name="/bazaDataContext" />
+  <nestedChildShapes>
+    <classShape Id="3fe2118f-0e41-4dec-9576-af47bf491980" absoluteBounds="0.75, 1.875, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/bazaDataContext/Gracze" />
+      <nestedChildShapes>
+        <elementListCompartment Id="36c20c12-49b6-450f-97dd-e0287d91a693" absoluteBounds="0.765, 2.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b809d5ba-c739-42c0-bad7-0bad86784bf2" absoluteBounds="2.375, 4.625, 2, 8.11684407552083">
+      <DataClassMoniker Name="/bazaDataContext/GryStatystyki" />
+      <nestedChildShapes>
+        <elementListCompartment Id="756cd68f-4aed-4184-a204-1666aa8d4bec" absoluteBounds="2.39, 5.0850000000000009, 1.9700000000000002, 7.556844075520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ea655bfd-bb94-49b9-a7c1-67f9b6832ee6" absoluteBounds="5, 2.25, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/bazaDataContext/GryOgolnie" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cccfa032-8f0f-4e22-8a63-1c96a0042f1b" absoluteBounds="5.0150000000000006, 2.71, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.94794840494792); (5 : 2.94794840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/bazaDataContext/Gracze/Gracze_GryOgolnie" />
+      <nodes>
+        <classShapeMoniker Id="3fe2118f-0e41-4dec-9576-af47bf491980" />
+        <classShapeMoniker Id="ea655bfd-bb94-49b9-a7c1-67f9b6832ee6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.375 : 5.18830485026042); (5 : 5.18830485026042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/bazaDataContext/GryStatystyki/GryStatystyki_GryOgolnie" />
+      <nodes>
+        <classShapeMoniker Id="b809d5ba-c739-42c0-bad7-0bad86784bf2" />
+        <classShapeMoniker Id="ea655bfd-bb94-49b9-a7c1-67f9b6832ee6" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
