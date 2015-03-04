@@ -1,5 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="baza" Class="bazaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\baza.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="Projekt_LOL.Properties.Settings" SettingsPropertyName="bazaConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Baza" Class="BazaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Baza.mdf;Integrated Security=True;Connect Timeout=30" SettingsObjectName="Projekt_LOL.Properties.Settings" SettingsPropertyName="BazaConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Champion" Member="Champions">
+    <Type Name="Champion">
+      <Column Name="championId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Champion_NameChampion" Member="NameChampion" ThisKey="name" OtherKey="Name" Type="NameChampion" Cardinality="One" />
+      <Association Name="GryOgolnie_Champion" Member="GryOgolnie" ThisKey="championId" OtherKey="championId" Type="GryOgolnie" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Gracze" Member="Graczes">
     <Type Name="Gracze">
       <Column Name="id" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -7,12 +15,56 @@
       <Column Name="profileIconId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="revisionDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="summonerLevel" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Association Name="Gracze_GryOgolnie" Member="GryOgolnies" ThisKey="id" OtherKey="summonerId" Type="GryOgolnie" />
+      <Association Name="Gracze_Icon" Member="Icons" ThisKey="profileIconId" OtherKey="id_Icons" Type="Icon" />
+      <Association Name="Gracze_GryOgolnie" Member="GryOgolnie" ThisKey="id" OtherKey="summonerId" Type="GryOgolnie" Cardinality="One" />
     </Type>
   </Table>
-  <Table Name="dbo.GryStatystyki" Member="GryStatystykis">
-    <Type Name="GryStatystyki">
-      <Column Name="gameId" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+  <Table Name="dbo.Itemy" Member="Itemies">
+    <Type Name="Itemy">
+      <Column Name="Id_gry" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_itema" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="GryOgolnie_Itemy" Member="GryOgolnie" ThisKey="Id_gry" OtherKey="gameId" Type="GryOgolnie" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NameChampion" Member="NameChampions">
+    <Type Name="NameChampion">
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Champion_NameChampion" Member="Champion" ThisKey="Name" OtherKey="name" Type="Champion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Spelle" Member="Spelles">
+    <Type Name="Spelle">
+      <Column Name="Id_gry" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Id_spella" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="GryOgolnie_Spelle" Member="GryOgolnie" ThisKey="Id_gry" OtherKey="gameId" Type="GryOgolnie" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Icons" Member="Icons">
+    <Type Name="Icon">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_Icons" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="Gracze_Icon" Member="Gracze" ThisKey="id_Icons" OtherKey="profileIconId" Type="Gracze" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GryOgolnie" Member="GryOgolnies">
+    <Type Name="GryOgolnie">
+      <Column Name="summonerId" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="gameId" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="invalid" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="gameMode" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="gameType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="subType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="mapId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="teamId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="championId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="spell1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="spell2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ipEarned" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="createDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="[level]" Member="level" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="goldEarned" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="numDeaths" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -50,27 +102,10 @@
       <Column Name="totalTimeCrowdControlDealt" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="playerRole" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="playerPosition" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="GryStatystyki_GryOgolnie" Member="GryOgolnies" ThisKey="gameId" OtherKey="gameId" Type="GryOgolnie" />
-    </Type>
-  </Table>
-  <Table Name="dbo.GryOgolnie" Member="GryOgolnies">
-    <Type Name="GryOgolnie">
-      <Column Name="gameId" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="summonerId" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="invalid" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="gameMode" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="gameType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="subType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="mapId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="teamId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="championId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="spell1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="spell2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="[level]" Member="level" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ipEarned" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="createDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="GryOgolnie_Champion" Member="Champion" ThisKey="championId" OtherKey="championId" Type="Champion" Cardinality="One" />
+      <Association Name="GryOgolnie_Itemy" Member="Itemy" ThisKey="gameId" OtherKey="Id_gry" Type="Itemy" Cardinality="One" />
+      <Association Name="GryOgolnie_Spelle" Member="Spelle" ThisKey="gameId" OtherKey="Id_gry" Type="Spelle" Cardinality="One" />
       <Association Name="Gracze_GryOgolnie" Member="Gracze" ThisKey="summonerId" OtherKey="id" Type="Gracze" IsForeignKey="true" />
-      <Association Name="GryStatystyki_GryOgolnie" Member="GryStatystyki" ThisKey="gameId" OtherKey="gameId" Type="GryStatystyki" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

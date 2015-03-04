@@ -1,37 +1,89 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 13" name="baza">
-  <DataContextMoniker Name="/bazaDataContext" />
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.25, 14.25" name="Baza">
+  <DataContextMoniker Name="/BazaDataContext" />
   <nestedChildShapes>
-    <classShape Id="3fe2118f-0e41-4dec-9576-af47bf491980" absoluteBounds="0.75, 1.875, 2, 1.7708968098958329">
-      <DataClassMoniker Name="/bazaDataContext/Gracze" />
+    <classShape Id="00460843-92f5-4f23-9444-d8bc1c737ca8" absoluteBounds="6.25, 6.125, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/BazaDataContext/Champion" />
       <nestedChildShapes>
-        <elementListCompartment Id="36c20c12-49b6-450f-97dd-e0287d91a693" absoluteBounds="0.765, 2.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="94cc797d-021c-45b7-b3c4-60e9146b573e" absoluteBounds="6.265, 6.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="b809d5ba-c739-42c0-bad7-0bad86784bf2" absoluteBounds="2.375, 4.625, 2, 8.11684407552083">
-      <DataClassMoniker Name="/bazaDataContext/GryStatystyki" />
+    <classShape Id="413eba40-f44e-4a24-9f72-235c754b16c4" absoluteBounds="0.75, 6.875, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/BazaDataContext/Gracze" />
       <nestedChildShapes>
-        <elementListCompartment Id="756cd68f-4aed-4184-a204-1666aa8d4bec" absoluteBounds="2.39, 5.0850000000000009, 1.9700000000000002, 7.556844075520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="ef76059f-5797-429c-a99a-f0bcfd215d63" absoluteBounds="0.765, 7.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="ea655bfd-bb94-49b9-a7c1-67f9b6832ee6" absoluteBounds="5, 2.25, 2, 3.5016097005208326">
-      <DataClassMoniker Name="/bazaDataContext/GryOgolnie" />
+    <classShape Id="83ee7cec-5069-4ede-ba6a-af611ad57b6e" absoluteBounds="6.25, 8, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/BazaDataContext/Itemy" />
       <nestedChildShapes>
-        <elementListCompartment Id="cccfa032-8f0f-4e22-8a63-1c96a0042f1b" absoluteBounds="5.0150000000000006, 2.71, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="3b3d59f4-2eb3-4797-aa42-0e2a359a7715" absoluteBounds="6.265, 8.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 2.94794840494792); (5 : 2.94794840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/bazaDataContext/Gracze/Gracze_GryOgolnie" />
+    <classShape Id="45a3fb13-e56f-4ee8-a65b-0d264dc83784" absoluteBounds="9, 6.125, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/BazaDataContext/NameChampion" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fbd2c60a-fd60-455d-bd6e-38da8f980642" absoluteBounds="9.015, 6.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1f054070-b8f9-48aa-9ec0-2c9dfbd81566" absoluteBounds="6.25, 10.125, 2, 1.3862939453124987">
+      <DataClassMoniker Name="/BazaDataContext/Spelle" />
+      <nestedChildShapes>
+        <elementListCompartment Id="282f299a-857a-4288-8ee9-a4110ba3614f" absoluteBounds="6.265, 10.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="342ca85f-2473-42e1-bad3-173478f991a3" absoluteBounds="3.5, 1.5, 2, 1.3862939453125003">
+      <DataClassMoniker Name="/BazaDataContext/Icon" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9e9922d1-67bc-4d90-a67a-fa7a11b29952" absoluteBounds="3.515, 1.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b918e60e-c617-4d2a-b739-c760d683543e" absoluteBounds="3.5, 3.625, 2, 10.424461263020831">
+      <DataClassMoniker Name="/BazaDataContext/GryOgolnie" />
+      <nestedChildShapes>
+        <elementListCompartment Id="25993068-4d4b-4b67-9857-a8d6ef47a967" absoluteBounds="3.515, 4.085, 1.9700000000000002, 9.8644612630208321" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.25 : 6.72199625651042); (9 : 6.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BazaDataContext/Champion/Champion_NameChampion" />
       <nodes>
-        <classShapeMoniker Id="3fe2118f-0e41-4dec-9576-af47bf491980" />
-        <classShapeMoniker Id="ea655bfd-bb94-49b9-a7c1-67f9b6832ee6" />
+        <classShapeMoniker Id="00460843-92f5-4f23-9444-d8bc1c737ca8" />
+        <classShapeMoniker Id="45a3fb13-e56f-4ee8-a65b-0d264dc83784" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.375 : 5.18830485026042); (5 : 5.18830485026042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/bazaDataContext/GryStatystyki/GryStatystyki_GryOgolnie" />
+    <associationConnector edgePoints="[(1.75 : 6.875); (1.75 : 2.19314697265625); (3.5 : 2.19314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BazaDataContext/Gracze/Gracze_Icon" />
       <nodes>
-        <classShapeMoniker Id="b809d5ba-c739-42c0-bad7-0bad86784bf2" />
-        <classShapeMoniker Id="ea655bfd-bb94-49b9-a7c1-67f9b6832ee6" />
+        <classShapeMoniker Id="413eba40-f44e-4a24-9f72-235c754b16c4" />
+        <classShapeMoniker Id="342ca85f-2473-42e1-bad3-173478f991a3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 6.72199625651042); (6.25 : 6.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BazaDataContext/GryOgolnie/GryOgolnie_Champion" />
+      <nodes>
+        <classShapeMoniker Id="b918e60e-c617-4d2a-b739-c760d683543e" />
+        <classShapeMoniker Id="00460843-92f5-4f23-9444-d8bc1c737ca8" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 8.69314697265625); (6.25 : 8.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BazaDataContext/GryOgolnie/GryOgolnie_Itemy" />
+      <nodes>
+        <classShapeMoniker Id="b918e60e-c617-4d2a-b739-c760d683543e" />
+        <classShapeMoniker Id="83ee7cec-5069-4ede-ba6a-af611ad57b6e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 10.8181469726562); (6.25 : 10.8181469726562)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BazaDataContext/GryOgolnie/GryOgolnie_Spelle" />
+      <nodes>
+        <classShapeMoniker Id="b918e60e-c617-4d2a-b739-c760d683543e" />
+        <classShapeMoniker Id="1f054070-b8f9-48aa-9ec0-2c9dfbd81566" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 7.76044840494792); (3.5 : 7.76044840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BazaDataContext/Gracze/Gracze_GryOgolnie" />
+      <nodes>
+        <classShapeMoniker Id="413eba40-f44e-4a24-9f72-235c754b16c4" />
+        <classShapeMoniker Id="b918e60e-c617-4d2a-b739-c760d683543e" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>
