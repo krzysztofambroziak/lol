@@ -19,7 +19,7 @@ namespace Projekt_LOL
         {
             InitializeComponent();
         }
-
+        //SIEMAAAAAAAAAA
         private void button1_Click(object sender, EventArgs e)
         {
             string content = client.DownloadString("https://eune.api.pvp.net/api/lol/eune/v1.4/summoner/by-name/Klekot56,Mitronus,Hablarox?api_key=f4d10937-bd33-42ac-80ef-62290e4755bf");

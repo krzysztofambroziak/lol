@@ -14,3 +14,6 @@ c:\users\krzysiek\documents\visual studio 2013\Projects\Projekt_LOL\Projekt_LOL\
 C:\Users\Krzysiek\Documents\GitHub\lol\Projekt_LOL\Projekt_LOL\bin\Debug\Projekt_LOL.exe.config
 C:\Users\Krzysiek\Documents\GitHub\lol\Projekt_LOL\Projekt_LOL\obj\Debug\Projekt_LOL.exe
 C:\Users\Krzysiek\Documents\GitHub\lol\Projekt_LOL\Projekt_LOL\obj\Debug\Projekt_LOL.pdb
+C:\Users\Bartek\Desktop\Ada programy\Ada od Kamila\projekt lol\lol\Projekt_LOL\Projekt_LOL\bin\Debug\Projekt_LOL.exe.config
+C:\Users\Bartek\Desktop\Ada programy\Ada od Kamila\projekt lol\lol\Projekt_LOL\Projekt_LOL\obj\Debug\Projekt_LOL.exe
+C:\Users\Bartek\Desktop\Ada programy\Ada od Kamila\projekt lol\lol\Projekt_LOL\Projekt_LOL\obj\Debug\Projekt_LOL.pdb
