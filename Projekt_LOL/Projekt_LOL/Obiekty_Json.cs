@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace Projekt_LOL
 {
 
-    //blalalalalalalalalaa
     public class Gracz
     {
         public long id { get; set;}

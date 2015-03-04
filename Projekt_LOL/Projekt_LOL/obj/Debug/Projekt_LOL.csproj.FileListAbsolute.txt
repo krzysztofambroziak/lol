@@ -11,3 +11,6 @@ c:\users\krzysiek\documents\visual studio 2013\Projects\Projekt_LOL\Projekt_LOL\
 c:\users\krzysiek\documents\visual studio 2013\Projects\Projekt_LOL\Projekt_LOL\bin\Debug\Newtonsoft.Json.xml
 c:\users\krzysiek\documents\visual studio 2013\Projects\Projekt_LOL\Projekt_LOL\bin\Debug\baza.mdf
 c:\users\krzysiek\documents\visual studio 2013\Projects\Projekt_LOL\Projekt_LOL\bin\Debug\baza_log.ldf
+C:\Users\Krzysiek\Documents\GitHub\lol\Projekt_LOL\Projekt_LOL\bin\Debug\Projekt_LOL.exe.config
+C:\Users\Krzysiek\Documents\GitHub\lol\Projekt_LOL\Projekt_LOL\obj\Debug\Projekt_LOL.exe
+C:\Users\Krzysiek\Documents\GitHub\lol\Projekt_LOL\Projekt_LOL\obj\Debug\Projekt_LOL.pdb
