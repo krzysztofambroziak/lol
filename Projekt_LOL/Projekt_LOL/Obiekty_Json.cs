@@ -127,4 +127,12 @@ namespace Projekt_LOL
         public int wardPlaced { get; set; }
         public Boolean win { get; set; }
     }
+    //https://global.api.pvp.net/api/lol/static-data/eune/v1.2/champion/3?api_key=f4d10937-bd33-42ac-80ef-62290e4755bf
+    public class ChampionJson
+    {
+        public int id { get; set; }
+        public string key { get; set; }
+        public string name { get; set; }
+        public string title { get; set; }
+    }
 }
