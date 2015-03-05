@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Projekt_LOL
 {
 
-    public class Gracz
+    public class GraczJson
     {
         public long id { get; set;}
         public string name { get; set; }
@@ -16,16 +16,17 @@ namespace Projekt_LOL
         public long summonerLevel { get; set; }
     }
 
-    public class ListaOstatnichGierGracza 
+    public class ListaGierJson 
     {
         public long summonerId { get; set; }
-        public List<Gra> games { get; set; }
+        public List<GraJson> games { get; set; }
     }
-    public class Gra
+
+    public class GraJson
     {
         public int championId { get; set; }
         public long createDate { get; set; }
-        public List<Wspolzawodnicy> fellowPlayers { get; set; }
+        public List<WspolzawodnicyJson> fellowPlayers { get; set; }
         public long gameId { get; set; }
         public string gameMode { get; set; }
         public string gameType { get; set; }
@@ -35,19 +36,19 @@ namespace Projekt_LOL
         public int mapId { get; set; }
         public int spell1 { get; set; }
         public int spell2 { get; set; }
-        public Statystyki stats { get; set; }
+        public StatystykiJson stats { get; set; }
         public string subType { get; set; }
         public int teamId { get; set; }
     }
 
-    public class Wspolzawodnicy
+    public class WspolzawodnicyJson
     {
         public int championId { get; set; }
         public long summonerId { get; set; }
         public int teamId { get; set; }
     }
 
-    public class Statystyki
+    public class StatystykiJson
     {
         public int assists { get; set; }
         public int barracksKilled { get; set; }
@@ -125,8 +126,5 @@ namespace Projekt_LOL
         public int wardKilled { get; set; }
         public int wardPlaced { get; set; }
         public Boolean win { get; set; }
-
-
-
     }
 }

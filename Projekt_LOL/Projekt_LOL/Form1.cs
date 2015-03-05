@@ -19,16 +19,15 @@ namespace Projekt_LOL
         {
             InitializeComponent();
         }
-        //SIEMAAAAAAAAAA
         private void button1_Click(object sender, EventArgs e)
         {
             string content = client.DownloadString("https://eune.api.pvp.net/api/lol/eune/v1.4/summoner/by-name/Klekot56,Mitronus,Hablarox?api_key=f4d10937-bd33-42ac-80ef-62290e4755bf");
             richTextBox1.Text = richTextBox1.Text + content;
-            Dictionary<string, Gracz> ListaGraczy = JsonConvert.DeserializeObject<Dictionary<string, Gracz>>(content);
+            Dictionary<string, GraczJson> ListaGraczy = JsonConvert.DeserializeObject<Dictionary<string, GraczJson>>(content);
 
         
             string content2 = client.DownloadString("https://eune.api.pvp.net/api/lol/eune/v1.3/game/by-summoner/47719350/recent?api_key=f4d10937-bd33-42ac-80ef-62290e4755bf");
-            ListaOstatnichGierGracza ostatnieGry = JsonConvert.DeserializeObject<ListaOstatnichGierGracza>(content2);
+            ListaGierJson ostatnieGry = JsonConvert.DeserializeObject<ListaGierJson>(content2);
             richTextBox1.Text = richTextBox1.Text +"\n"+ content2;        
         }
     }
