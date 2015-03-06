@@ -22,7 +22,7 @@ namespace Projekt_LOL
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Baza")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="baza")]
 	public partial class BazaDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -30,31 +30,28 @@ namespace Projekt_LOL
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertChampion(Champion instance);
-    partial void UpdateChampion(Champion instance);
-    partial void DeleteChampion(Champion instance);
     partial void InsertGracze(Gracze instance);
     partial void UpdateGracze(Gracze instance);
     partial void DeleteGracze(Gracze instance);
-    partial void InsertItemy(Itemy instance);
-    partial void UpdateItemy(Itemy instance);
-    partial void DeleteItemy(Itemy instance);
-    partial void InsertNameChampion(NameChampion instance);
-    partial void UpdateNameChampion(NameChampion instance);
-    partial void DeleteNameChampion(NameChampion instance);
-    partial void InsertSpelle(Spelle instance);
-    partial void UpdateSpelle(Spelle instance);
-    partial void DeleteSpelle(Spelle instance);
     partial void InsertIcon(Icon instance);
     partial void UpdateIcon(Icon instance);
     partial void DeleteIcon(Icon instance);
     partial void InsertGryOgolnie(GryOgolnie instance);
     partial void UpdateGryOgolnie(GryOgolnie instance);
     partial void DeleteGryOgolnie(GryOgolnie instance);
+    partial void InsertChampion(Champion instance);
+    partial void UpdateChampion(Champion instance);
+    partial void DeleteChampion(Champion instance);
+    partial void InsertItemy(Itemy instance);
+    partial void UpdateItemy(Itemy instance);
+    partial void DeleteItemy(Itemy instance);
+    partial void InsertSpelle(Spelle instance);
+    partial void UpdateSpelle(Spelle instance);
+    partial void DeleteSpelle(Spelle instance);
     #endregion
 		
 		public BazaDataContext() : 
-				base(global::Projekt_LOL.Properties.Settings.Default.BazaConnectionString1, mappingSource)
+				base(global::Projekt_LOL.Properties.Settings.Default.bazaConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -83,43 +80,11 @@ namespace Projekt_LOL
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Champion> Champions
-		{
-			get
-			{
-				return this.GetTable<Champion>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Gracze> Graczes
 		{
 			get
 			{
 				return this.GetTable<Gracze>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Itemy> Itemies
-		{
-			get
-			{
-				return this.GetTable<Itemy>();
-			}
-		}
-		
-		public System.Data.Linq.Table<NameChampion> NameChampions
-		{
-			get
-			{
-				return this.GetTable<NameChampion>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Spelle> Spelles
-		{
-			get
-			{
-				return this.GetTable<Spelle>();
 			}
 		}
 		
@@ -138,163 +103,28 @@ namespace Projekt_LOL
 				return this.GetTable<GryOgolnie>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Champion")]
-	public partial class Champion : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _championId;
-		
-		private string _name;
-		
-		private EntityRef<NameChampion> _NameChampion;
-		
-		private EntityRef<GryOgolnie> _GryOgolnie;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnchampionIdChanging(int value);
-    partial void OnchampionIdChanged();
-    partial void OnnameChanging(string value);
-    partial void OnnameChanged();
-    #endregion
-		
-		public Champion()
-		{
-			this._NameChampion = default(EntityRef<NameChampion>);
-			this._GryOgolnie = default(EntityRef<GryOgolnie>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_championId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int championId
+		public System.Data.Linq.Table<Champion> Champions
 		{
 			get
 			{
-				return this._championId;
-			}
-			set
-			{
-				if ((this._championId != value))
-				{
-					if (this._GryOgolnie.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnchampionIdChanging(value);
-					this.SendPropertyChanging();
-					this._championId = value;
-					this.SendPropertyChanged("championId");
-					this.OnchampionIdChanged();
-				}
+				return this.GetTable<Champion>();
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string name
+		public System.Data.Linq.Table<Itemy> Itemies
 		{
 			get
 			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this.OnnameChanging(value);
-					this.SendPropertyChanging();
-					this._name = value;
-					this.SendPropertyChanged("name");
-					this.OnnameChanged();
-				}
+				return this.GetTable<Itemy>();
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Champion_NameChampion", Storage="_NameChampion", ThisKey="name", OtherKey="Name", IsUnique=true, IsForeignKey=false)]
-		public NameChampion NameChampion
+		public System.Data.Linq.Table<Spelle> Spelles
 		{
 			get
 			{
-				return this._NameChampion.Entity;
-			}
-			set
-			{
-				NameChampion previousValue = this._NameChampion.Entity;
-				if (((previousValue != value) 
-							|| (this._NameChampion.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._NameChampion.Entity = null;
-						previousValue.Champion = null;
-					}
-					this._NameChampion.Entity = value;
-					if ((value != null))
-					{
-						value.Champion = this;
-					}
-					this.SendPropertyChanged("NameChampion");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GryOgolnie_Champion", Storage="_GryOgolnie", ThisKey="championId", OtherKey="championId", IsForeignKey=true)]
-		public GryOgolnie GryOgolnie
-		{
-			get
-			{
-				return this._GryOgolnie.Entity;
-			}
-			set
-			{
-				GryOgolnie previousValue = this._GryOgolnie.Entity;
-				if (((previousValue != value) 
-							|| (this._GryOgolnie.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._GryOgolnie.Entity = null;
-						previousValue.Champion = null;
-					}
-					this._GryOgolnie.Entity = value;
-					if ((value != null))
-					{
-						value.Champion = this;
-						this._championId = value.championId;
-					}
-					else
-					{
-						this._championId = default(int);
-					}
-					this.SendPropertyChanged("GryOgolnie");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<Spelle>();
 			}
 		}
 	}
@@ -315,9 +145,9 @@ namespace Projekt_LOL
 		
 		private long _summonerLevel;
 		
-		private EntitySet<Icon> _Icons;
-		
 		private EntityRef<GryOgolnie> _GryOgolnie;
+		
+		private EntityRef<Icon> _Icon;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -337,8 +167,8 @@ namespace Projekt_LOL
 		
 		public Gracze()
 		{
-			this._Icons = new EntitySet<Icon>(new Action<Icon>(this.attach_Icons), new Action<Icon>(this.detach_Icons));
 			this._GryOgolnie = default(EntityRef<GryOgolnie>);
+			this._Icon = default(EntityRef<Icon>);
 			OnCreated();
 		}
 		
@@ -393,6 +223,10 @@ namespace Projekt_LOL
 			{
 				if ((this._profileIconId != value))
 				{
+					if (this._Icon.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnprofileIconIdChanging(value);
 					this.SendPropertyChanging();
 					this._profileIconId = value;
@@ -442,19 +276,6 @@ namespace Projekt_LOL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Gracze_Icon", Storage="_Icons", ThisKey="profileIconId", OtherKey="id_Icons")]
-		public EntitySet<Icon> Icons
-		{
-			get
-			{
-				return this._Icons;
-			}
-			set
-			{
-				this._Icons.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Gracze_GryOgolnie", Storage="_GryOgolnie", ThisKey="id", OtherKey="summonerId", IsUnique=true, IsForeignKey=false)]
 		public GryOgolnie GryOgolnie
 		{
@@ -484,443 +305,36 @@ namespace Projekt_LOL
 			}
 		}
 		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Icons(Icon entity)
-		{
-			this.SendPropertyChanging();
-			entity.Gracze = this;
-		}
-		
-		private void detach_Icons(Icon entity)
-		{
-			this.SendPropertyChanging();
-			entity.Gracze = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Itemy")]
-	public partial class Itemy : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _Id_gry;
-		
-		private int _id_itema;
-		
-		private System.Data.Linq.Binary _Image;
-		
-		private EntityRef<GryOgolnie> _GryOgolnie;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnId_gryChanging(long value);
-    partial void OnId_gryChanged();
-    partial void Onid_itemaChanging(int value);
-    partial void Onid_itemaChanged();
-    partial void OnImageChanging(System.Data.Linq.Binary value);
-    partial void OnImageChanged();
-    #endregion
-		
-		public Itemy()
-		{
-			this._GryOgolnie = default(EntityRef<GryOgolnie>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_gry", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long Id_gry
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Icon_Gracze", Storage="_Icon", ThisKey="profileIconId", OtherKey="id", IsForeignKey=true)]
+		public Icon Icon
 		{
 			get
 			{
-				return this._Id_gry;
+				return this._Icon.Entity;
 			}
 			set
 			{
-				if ((this._Id_gry != value))
-				{
-					if (this._GryOgolnie.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnId_gryChanging(value);
-					this.SendPropertyChanging();
-					this._Id_gry = value;
-					this.SendPropertyChanged("Id_gry");
-					this.OnId_gryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_itema", DbType="Int NOT NULL")]
-		public int id_itema
-		{
-			get
-			{
-				return this._id_itema;
-			}
-			set
-			{
-				if ((this._id_itema != value))
-				{
-					this.Onid_itemaChanging(value);
-					this.SendPropertyChanging();
-					this._id_itema = value;
-					this.SendPropertyChanged("id_itema");
-					this.Onid_itemaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary Image
-		{
-			get
-			{
-				return this._Image;
-			}
-			set
-			{
-				if ((this._Image != value))
-				{
-					this.OnImageChanging(value);
-					this.SendPropertyChanging();
-					this._Image = value;
-					this.SendPropertyChanged("Image");
-					this.OnImageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GryOgolnie_Itemy", Storage="_GryOgolnie", ThisKey="Id_gry", OtherKey="gameId", IsForeignKey=true)]
-		public GryOgolnie GryOgolnie
-		{
-			get
-			{
-				return this._GryOgolnie.Entity;
-			}
-			set
-			{
-				GryOgolnie previousValue = this._GryOgolnie.Entity;
+				Icon previousValue = this._Icon.Entity;
 				if (((previousValue != value) 
-							|| (this._GryOgolnie.HasLoadedOrAssignedValue == false)))
+							|| (this._Icon.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._GryOgolnie.Entity = null;
-						previousValue.Itemy = null;
+						this._Icon.Entity = null;
+						previousValue.Graczes.Remove(this);
 					}
-					this._GryOgolnie.Entity = value;
+					this._Icon.Entity = value;
 					if ((value != null))
 					{
-						value.Itemy = this;
-						this._Id_gry = value.gameId;
+						value.Graczes.Add(this);
+						this._profileIconId = value.id;
 					}
 					else
 					{
-						this._Id_gry = default(long);
+						this._profileIconId = default(int);
 					}
-					this.SendPropertyChanged("GryOgolnie");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NameChampion")]
-	public partial class NameChampion : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _Name;
-		
-		private System.Data.Linq.Binary _Image;
-		
-		private EntityRef<Champion> _Champion;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnImageChanging(System.Data.Linq.Binary value);
-    partial void OnImageChanged();
-    #endregion
-		
-		public NameChampion()
-		{
-			this._Champion = default(EntityRef<Champion>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					if (this._Champion.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="Image", UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary Image
-		{
-			get
-			{
-				return this._Image;
-			}
-			set
-			{
-				if ((this._Image != value))
-				{
-					this.OnImageChanging(value);
-					this.SendPropertyChanging();
-					this._Image = value;
-					this.SendPropertyChanged("Image");
-					this.OnImageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Champion_NameChampion", Storage="_Champion", ThisKey="Name", OtherKey="name", IsForeignKey=true)]
-		public Champion Champion
-		{
-			get
-			{
-				return this._Champion.Entity;
-			}
-			set
-			{
-				Champion previousValue = this._Champion.Entity;
-				if (((previousValue != value) 
-							|| (this._Champion.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Champion.Entity = null;
-						previousValue.NameChampion = null;
-					}
-					this._Champion.Entity = value;
-					if ((value != null))
-					{
-						value.NameChampion = this;
-						this._Name = value.name;
-					}
-					else
-					{
-						this._Name = default(string);
-					}
-					this.SendPropertyChanged("Champion");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Spelle")]
-	public partial class Spelle : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _Id_gry;
-		
-		private int _Id_spella;
-		
-		private System.Data.Linq.Binary _Image;
-		
-		private EntityRef<GryOgolnie> _GryOgolnie;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnId_gryChanging(long value);
-    partial void OnId_gryChanged();
-    partial void OnId_spellaChanging(int value);
-    partial void OnId_spellaChanged();
-    partial void OnImageChanging(System.Data.Linq.Binary value);
-    partial void OnImageChanged();
-    #endregion
-		
-		public Spelle()
-		{
-			this._GryOgolnie = default(EntityRef<GryOgolnie>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_gry", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long Id_gry
-		{
-			get
-			{
-				return this._Id_gry;
-			}
-			set
-			{
-				if ((this._Id_gry != value))
-				{
-					if (this._GryOgolnie.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnId_gryChanging(value);
-					this.SendPropertyChanging();
-					this._Id_gry = value;
-					this.SendPropertyChanged("Id_gry");
-					this.OnId_gryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_spella", DbType="Int NOT NULL")]
-		public int Id_spella
-		{
-			get
-			{
-				return this._Id_spella;
-			}
-			set
-			{
-				if ((this._Id_spella != value))
-				{
-					this.OnId_spellaChanging(value);
-					this.SendPropertyChanging();
-					this._Id_spella = value;
-					this.SendPropertyChanged("Id_spella");
-					this.OnId_spellaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary Image
-		{
-			get
-			{
-				return this._Image;
-			}
-			set
-			{
-				if ((this._Image != value))
-				{
-					this.OnImageChanging(value);
-					this.SendPropertyChanging();
-					this._Image = value;
-					this.SendPropertyChanged("Image");
-					this.OnImageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GryOgolnie_Spelle", Storage="_GryOgolnie", ThisKey="Id_gry", OtherKey="gameId", IsForeignKey=true)]
-		public GryOgolnie GryOgolnie
-		{
-			get
-			{
-				return this._GryOgolnie.Entity;
-			}
-			set
-			{
-				GryOgolnie previousValue = this._GryOgolnie.Entity;
-				if (((previousValue != value) 
-							|| (this._GryOgolnie.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._GryOgolnie.Entity = null;
-						previousValue.Spelle = null;
-					}
-					this._GryOgolnie.Entity = value;
-					if ((value != null))
-					{
-						value.Spelle = this;
-						this._Id_gry = value.gameId;
-					}
-					else
-					{
-						this._Id_gry = default(long);
-					}
-					this.SendPropertyChanged("GryOgolnie");
+					this.SendPropertyChanged("Icon");
 				}
 			}
 		}
@@ -958,7 +372,7 @@ namespace Projekt_LOL
 		
 		private System.Data.Linq.Binary _Image;
 		
-		private EntityRef<Gracze> _Gracze;
+		private EntitySet<Gracze> _Graczes;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -974,7 +388,7 @@ namespace Projekt_LOL
 		
 		public Icon()
 		{
-			this._Gracze = default(EntityRef<Gracze>);
+			this._Graczes = new EntitySet<Gracze>(new Action<Gracze>(this.attach_Graczes), new Action<Gracze>(this.detach_Graczes));
 			OnCreated();
 		}
 		
@@ -1009,10 +423,6 @@ namespace Projekt_LOL
 			{
 				if ((this._id_Icons != value))
 				{
-					if (this._Gracze.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.Onid_IconsChanging(value);
 					this.SendPropertyChanging();
 					this._id_Icons = value;
@@ -1042,37 +452,16 @@ namespace Projekt_LOL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Gracze_Icon", Storage="_Gracze", ThisKey="id_Icons", OtherKey="profileIconId", IsForeignKey=true)]
-		public Gracze Gracze
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Icon_Gracze", Storage="_Graczes", ThisKey="id", OtherKey="profileIconId")]
+		public EntitySet<Gracze> Graczes
 		{
 			get
 			{
-				return this._Gracze.Entity;
+				return this._Graczes;
 			}
 			set
 			{
-				Gracze previousValue = this._Gracze.Entity;
-				if (((previousValue != value) 
-							|| (this._Gracze.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Gracze.Entity = null;
-						previousValue.Icons.Remove(this);
-					}
-					this._Gracze.Entity = value;
-					if ((value != null))
-					{
-						value.Icons.Add(this);
-						this._id_Icons = value.profileIconId;
-					}
-					else
-					{
-						this._id_Icons = default(int);
-					}
-					this.SendPropertyChanged("Gracze");
-				}
+				this._Graczes.Assign(value);
 			}
 		}
 		
@@ -1094,6 +483,18 @@ namespace Projekt_LOL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Graczes(Gracze entity)
+		{
+			this.SendPropertyChanging();
+			entity.Icon = this;
+		}
+		
+		private void detach_Graczes(Gracze entity)
+		{
+			this.SendPropertyChanging();
+			entity.Icon = null;
 		}
 	}
 	
@@ -1203,13 +604,13 @@ namespace Projekt_LOL
 		
 		private int _playerPosition;
 		
+		private EntityRef<Gracze> _Gracze;
+		
 		private EntityRef<Champion> _Champion;
 		
 		private EntityRef<Itemy> _Itemy;
 		
 		private EntityRef<Spelle> _Spelle;
-		
-		private EntityRef<Gracze> _Gracze;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1319,10 +720,10 @@ namespace Projekt_LOL
 		
 		public GryOgolnie()
 		{
+			this._Gracze = default(EntityRef<Gracze>);
 			this._Champion = default(EntityRef<Champion>);
 			this._Itemy = default(EntityRef<Itemy>);
 			this._Spelle = default(EntityRef<Spelle>);
-			this._Gracze = default(EntityRef<Gracze>);
 			OnCreated();
 		}
 		
@@ -1501,6 +902,10 @@ namespace Projekt_LOL
 			{
 				if ((this._championId != value))
 				{
+					if (this._Champion.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnchampionIdChanging(value);
 					this.SendPropertyChanging();
 					this._championId = value;
@@ -1521,6 +926,10 @@ namespace Projekt_LOL
 			{
 				if ((this._spell1 != value))
 				{
+					if (this._Spelle.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.Onspell1Changing(value);
 					this.SendPropertyChanging();
 					this._spell1 = value;
@@ -2021,6 +1430,10 @@ namespace Projekt_LOL
 			{
 				if ((this._item0 != value))
 				{
+					if (this._Itemy.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.Onitem0Changing(value);
 					this.SendPropertyChanging();
 					this._item0 = value;
@@ -2330,93 +1743,6 @@ namespace Projekt_LOL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GryOgolnie_Champion", Storage="_Champion", ThisKey="championId", OtherKey="championId", IsUnique=true, IsForeignKey=false)]
-		public Champion Champion
-		{
-			get
-			{
-				return this._Champion.Entity;
-			}
-			set
-			{
-				Champion previousValue = this._Champion.Entity;
-				if (((previousValue != value) 
-							|| (this._Champion.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Champion.Entity = null;
-						previousValue.GryOgolnie = null;
-					}
-					this._Champion.Entity = value;
-					if ((value != null))
-					{
-						value.GryOgolnie = this;
-					}
-					this.SendPropertyChanged("Champion");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GryOgolnie_Itemy", Storage="_Itemy", ThisKey="gameId", OtherKey="Id_gry", IsUnique=true, IsForeignKey=false)]
-		public Itemy Itemy
-		{
-			get
-			{
-				return this._Itemy.Entity;
-			}
-			set
-			{
-				Itemy previousValue = this._Itemy.Entity;
-				if (((previousValue != value) 
-							|| (this._Itemy.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Itemy.Entity = null;
-						previousValue.GryOgolnie = null;
-					}
-					this._Itemy.Entity = value;
-					if ((value != null))
-					{
-						value.GryOgolnie = this;
-					}
-					this.SendPropertyChanged("Itemy");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="GryOgolnie_Spelle", Storage="_Spelle", ThisKey="gameId", OtherKey="Id_gry", IsUnique=true, IsForeignKey=false)]
-		public Spelle Spelle
-		{
-			get
-			{
-				return this._Spelle.Entity;
-			}
-			set
-			{
-				Spelle previousValue = this._Spelle.Entity;
-				if (((previousValue != value) 
-							|| (this._Spelle.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Spelle.Entity = null;
-						previousValue.GryOgolnie = null;
-					}
-					this._Spelle.Entity = value;
-					if ((value != null))
-					{
-						value.GryOgolnie = this;
-					}
-					this.SendPropertyChanged("Spelle");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Gracze_GryOgolnie", Storage="_Gracze", ThisKey="summonerId", OtherKey="id", IsForeignKey=true)]
 		public Gracze Gracze
 		{
@@ -2451,6 +1777,108 @@ namespace Projekt_LOL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Champion_GryOgolnie", Storage="_Champion", ThisKey="championId", OtherKey="Id", IsForeignKey=true)]
+		public Champion Champion
+		{
+			get
+			{
+				return this._Champion.Entity;
+			}
+			set
+			{
+				Champion previousValue = this._Champion.Entity;
+				if (((previousValue != value) 
+							|| (this._Champion.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Champion.Entity = null;
+						previousValue.GryOgolnies.Remove(this);
+					}
+					this._Champion.Entity = value;
+					if ((value != null))
+					{
+						value.GryOgolnies.Add(this);
+						this._championId = value.Id;
+					}
+					else
+					{
+						this._championId = default(int);
+					}
+					this.SendPropertyChanged("Champion");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Itemy_GryOgolnie", Storage="_Itemy", ThisKey="item0", OtherKey="id_itema", IsForeignKey=true)]
+		public Itemy Itemy
+		{
+			get
+			{
+				return this._Itemy.Entity;
+			}
+			set
+			{
+				Itemy previousValue = this._Itemy.Entity;
+				if (((previousValue != value) 
+							|| (this._Itemy.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Itemy.Entity = null;
+						previousValue.GryOgolnies.Remove(this);
+					}
+					this._Itemy.Entity = value;
+					if ((value != null))
+					{
+						value.GryOgolnies.Add(this);
+						this._item0 = value.id_itema;
+					}
+					else
+					{
+						this._item0 = default(int);
+					}
+					this.SendPropertyChanged("Itemy");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Spelle_GryOgolnie", Storage="_Spelle", ThisKey="spell1", OtherKey="Id_spella", IsForeignKey=true)]
+		public Spelle Spelle
+		{
+			get
+			{
+				return this._Spelle.Entity;
+			}
+			set
+			{
+				Spelle previousValue = this._Spelle.Entity;
+				if (((previousValue != value) 
+							|| (this._Spelle.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Spelle.Entity = null;
+						previousValue.GryOgolnies.Remove(this);
+					}
+					this._Spelle.Entity = value;
+					if ((value != null))
+					{
+						value.GryOgolnies.Add(this);
+						this._spell1 = value.Id_spella;
+					}
+					else
+					{
+						this._spell1 = default(int);
+					}
+					this.SendPropertyChanged("Spelle");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2469,6 +1897,372 @@ namespace Projekt_LOL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Champion")]
+	public partial class Champion : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _nazwa;
+		
+		private System.Data.Linq.Binary _Image;
+		
+		private EntitySet<GryOgolnie> _GryOgolnies;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnnazwaChanging(string value);
+    partial void OnnazwaChanged();
+    partial void OnImageChanging(System.Data.Linq.Binary value);
+    partial void OnImageChanged();
+    #endregion
+		
+		public Champion()
+		{
+			this._GryOgolnies = new EntitySet<GryOgolnie>(new Action<GryOgolnie>(this.attach_GryOgolnies), new Action<GryOgolnie>(this.detach_GryOgolnies));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nazwa", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nazwa
+		{
+			get
+			{
+				return this._nazwa;
+			}
+			set
+			{
+				if ((this._nazwa != value))
+				{
+					this.OnnazwaChanging(value);
+					this.SendPropertyChanging();
+					this._nazwa = value;
+					this.SendPropertyChanged("nazwa");
+					this.OnnazwaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this.OnImageChanging(value);
+					this.SendPropertyChanging();
+					this._Image = value;
+					this.SendPropertyChanged("Image");
+					this.OnImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Champion_GryOgolnie", Storage="_GryOgolnies", ThisKey="Id", OtherKey="championId")]
+		public EntitySet<GryOgolnie> GryOgolnies
+		{
+			get
+			{
+				return this._GryOgolnies;
+			}
+			set
+			{
+				this._GryOgolnies.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_GryOgolnies(GryOgolnie entity)
+		{
+			this.SendPropertyChanging();
+			entity.Champion = this;
+		}
+		
+		private void detach_GryOgolnies(GryOgolnie entity)
+		{
+			this.SendPropertyChanging();
+			entity.Champion = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Itemy")]
+	public partial class Itemy : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_itema;
+		
+		private System.Data.Linq.Binary _Image;
+		
+		private EntitySet<GryOgolnie> _GryOgolnies;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_itemaChanging(int value);
+    partial void Onid_itemaChanged();
+    partial void OnImageChanging(System.Data.Linq.Binary value);
+    partial void OnImageChanged();
+    #endregion
+		
+		public Itemy()
+		{
+			this._GryOgolnies = new EntitySet<GryOgolnie>(new Action<GryOgolnie>(this.attach_GryOgolnies), new Action<GryOgolnie>(this.detach_GryOgolnies));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_itema", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int id_itema
+		{
+			get
+			{
+				return this._id_itema;
+			}
+			set
+			{
+				if ((this._id_itema != value))
+				{
+					this.Onid_itemaChanging(value);
+					this.SendPropertyChanging();
+					this._id_itema = value;
+					this.SendPropertyChanged("id_itema");
+					this.Onid_itemaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this.OnImageChanging(value);
+					this.SendPropertyChanging();
+					this._Image = value;
+					this.SendPropertyChanged("Image");
+					this.OnImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Itemy_GryOgolnie", Storage="_GryOgolnies", ThisKey="id_itema", OtherKey="item0")]
+		public EntitySet<GryOgolnie> GryOgolnies
+		{
+			get
+			{
+				return this._GryOgolnies;
+			}
+			set
+			{
+				this._GryOgolnies.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_GryOgolnies(GryOgolnie entity)
+		{
+			this.SendPropertyChanging();
+			entity.Itemy = this;
+		}
+		
+		private void detach_GryOgolnies(GryOgolnie entity)
+		{
+			this.SendPropertyChanging();
+			entity.Itemy = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Spelle")]
+	public partial class Spelle : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id_spella;
+		
+		private System.Data.Linq.Binary _Image;
+		
+		private EntitySet<GryOgolnie> _GryOgolnies;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnId_spellaChanging(int value);
+    partial void OnId_spellaChanged();
+    partial void OnImageChanging(System.Data.Linq.Binary value);
+    partial void OnImageChanged();
+    #endregion
+		
+		public Spelle()
+		{
+			this._GryOgolnies = new EntitySet<GryOgolnie>(new Action<GryOgolnie>(this.attach_GryOgolnies), new Action<GryOgolnie>(this.detach_GryOgolnies));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id_spella", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Id_spella
+		{
+			get
+			{
+				return this._Id_spella;
+			}
+			set
+			{
+				if ((this._Id_spella != value))
+				{
+					this.OnId_spellaChanging(value);
+					this.SendPropertyChanging();
+					this._Id_spella = value;
+					this.SendPropertyChanged("Id_spella");
+					this.OnId_spellaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this.OnImageChanging(value);
+					this.SendPropertyChanging();
+					this._Image = value;
+					this.SendPropertyChanged("Image");
+					this.OnImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Spelle_GryOgolnie", Storage="_GryOgolnies", ThisKey="Id_spella", OtherKey="spell1")]
+		public EntitySet<GryOgolnie> GryOgolnies
+		{
+			get
+			{
+				return this._GryOgolnies;
+			}
+			set
+			{
+				this._GryOgolnies.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_GryOgolnies(GryOgolnie entity)
+		{
+			this.SendPropertyChanging();
+			entity.Spelle = this;
+		}
+		
+		private void detach_GryOgolnies(GryOgolnie entity)
+		{
+			this.SendPropertyChanging();
+			entity.Spelle = null;
 		}
 	}
 }

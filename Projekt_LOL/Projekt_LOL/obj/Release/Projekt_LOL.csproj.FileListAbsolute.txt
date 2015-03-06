@@ -24,3 +24,6 @@ C:\Users\Krzysiek\Documents\GitHub\lol\Projekt_LOL\Projekt_LOL\bin\Release\Proje
 C:\Users\Krzysiek\Documents\GitHub\lol\Projekt_LOL\Projekt_LOL\bin\Release\Projekt_LOL.pdb
 C:\Users\Krzysiek\Documents\GitHub\lol\Projekt_LOL\Projekt_LOL\bin\Release\Newtonsoft.Json.dll
 C:\Users\Krzysiek\Documents\GitHub\lol\Projekt_LOL\Projekt_LOL\bin\Release\Newtonsoft.Json.xml
+C:\Users\Bartek\Desktop\Projekt LoL\lol\Projekt_LOL\Projekt_LOL\bin\Release\Projekt_LOL.exe.config
+C:\Users\Bartek\Desktop\Projekt LoL\lol\Projekt_LOL\Projekt_LOL\obj\Release\Projekt_LOL.exe
+C:\Users\Bartek\Desktop\Projekt LoL\lol\Projekt_LOL\Projekt_LOL\obj\Release\Projekt_LOL.pdb
