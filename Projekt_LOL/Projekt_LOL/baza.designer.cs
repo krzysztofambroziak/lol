@@ -30,12 +30,12 @@ namespace Projekt_LOL
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertGracze(Gracze instance);
-    partial void UpdateGracze(Gracze instance);
-    partial void DeleteGracze(Gracze instance);
     partial void InsertGry(Gry instance);
     partial void UpdateGry(Gry instance);
     partial void DeleteGry(Gry instance);
+    partial void InsertGracze(Gracze instance);
+    partial void UpdateGracze(Gracze instance);
+    partial void DeleteGracze(Gracze instance);
     partial void InsertIkonyCzarow(IkonyCzarow instance);
     partial void UpdateIkonyCzarow(IkonyCzarow instance);
     partial void DeleteIkonyCzarow(IkonyCzarow instance);
@@ -83,19 +83,19 @@ namespace Projekt_LOL
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Gracze> Graczes
-		{
-			get
-			{
-				return this.GetTable<Gracze>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Gry> Gries
 		{
 			get
 			{
 				return this.GetTable<Gry>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Gracze> Graczes
+		{
+			get
+			{
+				return this.GetTable<Gracze>();
 			}
 		}
 		
@@ -137,298 +137,6 @@ namespace Projekt_LOL
 			{
 				return this.GetTable<Regiony>();
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Gracze")]
-	public partial class Gracze : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _Id;
-		
-		private string _name;
-		
-		private System.Nullable<int> _profileIconId;
-		
-		private System.Nullable<long> _revisionDate;
-		
-		private System.Nullable<long> _summonerLevel;
-		
-		private System.Nullable<int> _idRegionu;
-		
-		private EntitySet<Gry> _Gries;
-		
-		private EntityRef<IkonyGraczy> _IkonyGraczy;
-		
-		private EntityRef<Regiony> _Regiony;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(long value);
-    partial void OnIdChanged();
-    partial void OnnameChanging(string value);
-    partial void OnnameChanged();
-    partial void OnprofileIconIdChanging(System.Nullable<int> value);
-    partial void OnprofileIconIdChanged();
-    partial void OnrevisionDateChanging(System.Nullable<long> value);
-    partial void OnrevisionDateChanged();
-    partial void OnsummonerLevelChanging(System.Nullable<long> value);
-    partial void OnsummonerLevelChanged();
-    partial void OnidRegionuChanging(System.Nullable<int> value);
-    partial void OnidRegionuChanged();
-    #endregion
-		
-		public Gracze()
-		{
-			this._Gries = new EntitySet<Gry>(new Action<Gry>(this.attach_Gries), new Action<Gry>(this.detach_Gries));
-			this._IkonyGraczy = default(EntityRef<IkonyGraczy>);
-			this._Regiony = default(EntityRef<Regiony>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(20)")]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this.OnnameChanging(value);
-					this.SendPropertyChanging();
-					this._name = value;
-					this.SendPropertyChanged("name");
-					this.OnnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_profileIconId", DbType="Int")]
-		public System.Nullable<int> profileIconId
-		{
-			get
-			{
-				return this._profileIconId;
-			}
-			set
-			{
-				if ((this._profileIconId != value))
-				{
-					if (this._IkonyGraczy.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnprofileIconIdChanging(value);
-					this.SendPropertyChanging();
-					this._profileIconId = value;
-					this.SendPropertyChanged("profileIconId");
-					this.OnprofileIconIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_revisionDate", DbType="BigInt")]
-		public System.Nullable<long> revisionDate
-		{
-			get
-			{
-				return this._revisionDate;
-			}
-			set
-			{
-				if ((this._revisionDate != value))
-				{
-					this.OnrevisionDateChanging(value);
-					this.SendPropertyChanging();
-					this._revisionDate = value;
-					this.SendPropertyChanged("revisionDate");
-					this.OnrevisionDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_summonerLevel", DbType="BigInt")]
-		public System.Nullable<long> summonerLevel
-		{
-			get
-			{
-				return this._summonerLevel;
-			}
-			set
-			{
-				if ((this._summonerLevel != value))
-				{
-					this.OnsummonerLevelChanging(value);
-					this.SendPropertyChanging();
-					this._summonerLevel = value;
-					this.SendPropertyChanged("summonerLevel");
-					this.OnsummonerLevelChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idRegionu", DbType="Int")]
-		public System.Nullable<int> idRegionu
-		{
-			get
-			{
-				return this._idRegionu;
-			}
-			set
-			{
-				if ((this._idRegionu != value))
-				{
-					if (this._Regiony.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidRegionuChanging(value);
-					this.SendPropertyChanging();
-					this._idRegionu = value;
-					this.SendPropertyChanged("idRegionu");
-					this.OnidRegionuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Gracze_Gry", Storage="_Gries", ThisKey="Id", OtherKey="summonerId")]
-		public EntitySet<Gry> Gries
-		{
-			get
-			{
-				return this._Gries;
-			}
-			set
-			{
-				this._Gries.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyGraczy_Gracze", Storage="_IkonyGraczy", ThisKey="profileIconId", OtherKey="profileIconId", IsForeignKey=true)]
-		public IkonyGraczy IkonyGraczy
-		{
-			get
-			{
-				return this._IkonyGraczy.Entity;
-			}
-			set
-			{
-				IkonyGraczy previousValue = this._IkonyGraczy.Entity;
-				if (((previousValue != value) 
-							|| (this._IkonyGraczy.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._IkonyGraczy.Entity = null;
-						previousValue.Graczes.Remove(this);
-					}
-					this._IkonyGraczy.Entity = value;
-					if ((value != null))
-					{
-						value.Graczes.Add(this);
-						this._profileIconId = value.profileIconId;
-					}
-					else
-					{
-						this._profileIconId = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("IkonyGraczy");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Regiony_Gracze", Storage="_Regiony", ThisKey="idRegionu", OtherKey="Id", IsForeignKey=true)]
-		public Regiony Regiony
-		{
-			get
-			{
-				return this._Regiony.Entity;
-			}
-			set
-			{
-				Regiony previousValue = this._Regiony.Entity;
-				if (((previousValue != value) 
-							|| (this._Regiony.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Regiony.Entity = null;
-						previousValue.Graczes.Remove(this);
-					}
-					this._Regiony.Entity = value;
-					if ((value != null))
-					{
-						value.Graczes.Add(this);
-						this._idRegionu = value.Id;
-					}
-					else
-					{
-						this._idRegionu = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Regiony");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Gries(Gry entity)
-		{
-			this.SendPropertyChanging();
-			entity.Gracze = this;
-		}
-		
-		private void detach_Gries(Gry entity)
-		{
-			this.SendPropertyChanging();
-			entity.Gracze = null;
 		}
 	}
 	
@@ -1926,6 +1634,298 @@ namespace Projekt_LOL
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Gracze")]
+	public partial class Gracze : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _Id;
+		
+		private string _name;
+		
+		private int _profileIconId;
+		
+		private long _revisionDate;
+		
+		private long _summonerLevel;
+		
+		private int _idRegionu;
+		
+		private EntitySet<Gry> _Gries;
+		
+		private EntityRef<IkonyGraczy> _IkonyGraczy;
+		
+		private EntityRef<Regiony> _Regiony;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(long value);
+    partial void OnIdChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    partial void OnprofileIconIdChanging(int value);
+    partial void OnprofileIconIdChanged();
+    partial void OnrevisionDateChanging(long value);
+    partial void OnrevisionDateChanged();
+    partial void OnsummonerLevelChanging(long value);
+    partial void OnsummonerLevelChanged();
+    partial void OnidRegionuChanging(int value);
+    partial void OnidRegionuChanged();
+    #endregion
+		
+		public Gracze()
+		{
+			this._Gries = new EntitySet<Gry>(new Action<Gry>(this.attach_Gries), new Action<Gry>(this.detach_Gries));
+			this._IkonyGraczy = default(EntityRef<IkonyGraczy>);
+			this._Regiony = default(EntityRef<Regiony>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_profileIconId", DbType="Int NOT NULL")]
+		public int profileIconId
+		{
+			get
+			{
+				return this._profileIconId;
+			}
+			set
+			{
+				if ((this._profileIconId != value))
+				{
+					if (this._IkonyGraczy.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnprofileIconIdChanging(value);
+					this.SendPropertyChanging();
+					this._profileIconId = value;
+					this.SendPropertyChanged("profileIconId");
+					this.OnprofileIconIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_revisionDate", DbType="BigInt NOT NULL")]
+		public long revisionDate
+		{
+			get
+			{
+				return this._revisionDate;
+			}
+			set
+			{
+				if ((this._revisionDate != value))
+				{
+					this.OnrevisionDateChanging(value);
+					this.SendPropertyChanging();
+					this._revisionDate = value;
+					this.SendPropertyChanged("revisionDate");
+					this.OnrevisionDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_summonerLevel", DbType="BigInt NOT NULL")]
+		public long summonerLevel
+		{
+			get
+			{
+				return this._summonerLevel;
+			}
+			set
+			{
+				if ((this._summonerLevel != value))
+				{
+					this.OnsummonerLevelChanging(value);
+					this.SendPropertyChanging();
+					this._summonerLevel = value;
+					this.SendPropertyChanged("summonerLevel");
+					this.OnsummonerLevelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idRegionu", DbType="Int NOT NULL")]
+		public int idRegionu
+		{
+			get
+			{
+				return this._idRegionu;
+			}
+			set
+			{
+				if ((this._idRegionu != value))
+				{
+					if (this._Regiony.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidRegionuChanging(value);
+					this.SendPropertyChanging();
+					this._idRegionu = value;
+					this.SendPropertyChanged("idRegionu");
+					this.OnidRegionuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Gracze_Gry", Storage="_Gries", ThisKey="Id", OtherKey="summonerId")]
+		public EntitySet<Gry> Gries
+		{
+			get
+			{
+				return this._Gries;
+			}
+			set
+			{
+				this._Gries.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyGraczy_Gracze", Storage="_IkonyGraczy", ThisKey="profileIconId", OtherKey="profileIconId", IsForeignKey=true)]
+		public IkonyGraczy IkonyGraczy
+		{
+			get
+			{
+				return this._IkonyGraczy.Entity;
+			}
+			set
+			{
+				IkonyGraczy previousValue = this._IkonyGraczy.Entity;
+				if (((previousValue != value) 
+							|| (this._IkonyGraczy.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._IkonyGraczy.Entity = null;
+						previousValue.Graczes.Remove(this);
+					}
+					this._IkonyGraczy.Entity = value;
+					if ((value != null))
+					{
+						value.Graczes.Add(this);
+						this._profileIconId = value.profileIconId;
+					}
+					else
+					{
+						this._profileIconId = default(int);
+					}
+					this.SendPropertyChanged("IkonyGraczy");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Regiony_Gracze", Storage="_Regiony", ThisKey="idRegionu", OtherKey="Id", IsForeignKey=true)]
+		public Regiony Regiony
+		{
+			get
+			{
+				return this._Regiony.Entity;
+			}
+			set
+			{
+				Regiony previousValue = this._Regiony.Entity;
+				if (((previousValue != value) 
+							|| (this._Regiony.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Regiony.Entity = null;
+						previousValue.Graczes.Remove(this);
+					}
+					this._Regiony.Entity = value;
+					if ((value != null))
+					{
+						value.Graczes.Add(this);
+						this._idRegionu = value.Id;
+					}
+					else
+					{
+						this._idRegionu = default(int);
+					}
+					this.SendPropertyChanged("Regiony");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Gries(Gry entity)
+		{
+			this.SendPropertyChanging();
+			entity.Gracze = this;
+		}
+		
+		private void detach_Gries(Gry entity)
+		{
+			this.SendPropertyChanging();
+			entity.Gracze = null;
 		}
 	}
 	
