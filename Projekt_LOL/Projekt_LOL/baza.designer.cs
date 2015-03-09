@@ -30,21 +30,21 @@ namespace Projekt_LOL
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertGry(Gry instance);
-    partial void UpdateGry(Gry instance);
-    partial void DeleteGry(Gry instance);
-    partial void InsertGracze(Gracze instance);
-    partial void UpdateGracze(Gracze instance);
-    partial void DeleteGracze(Gracze instance);
-    partial void InsertIkonyCzarow(IkonyCzarow instance);
-    partial void UpdateIkonyCzarow(IkonyCzarow instance);
-    partial void DeleteIkonyCzarow(IkonyCzarow instance);
-    partial void InsertIkonyGraczy(IkonyGraczy instance);
-    partial void UpdateIkonyGraczy(IkonyGraczy instance);
-    partial void DeleteIkonyGraczy(IkonyGraczy instance);
     partial void InsertIkonyPrzedmiotow(IkonyPrzedmiotow instance);
     partial void UpdateIkonyPrzedmiotow(IkonyPrzedmiotow instance);
     partial void DeleteIkonyPrzedmiotow(IkonyPrzedmiotow instance);
+    partial void InsertGracze(Gracze instance);
+    partial void UpdateGracze(Gracze instance);
+    partial void DeleteGracze(Gracze instance);
+    partial void InsertGry(Gry instance);
+    partial void UpdateGry(Gry instance);
+    partial void DeleteGry(Gry instance);
+    partial void InsertIkonyGraczy(IkonyGraczy instance);
+    partial void UpdateIkonyGraczy(IkonyGraczy instance);
+    partial void DeleteIkonyGraczy(IkonyGraczy instance);
+    partial void InsertIkonyCzarow(IkonyCzarow instance);
+    partial void UpdateIkonyCzarow(IkonyCzarow instance);
+    partial void DeleteIkonyCzarow(IkonyCzarow instance);
     partial void InsertPostacie(Postacie instance);
     partial void UpdatePostacie(Postacie instance);
     partial void DeletePostacie(Postacie instance);
@@ -83,11 +83,11 @@ namespace Projekt_LOL
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Gry> Gries
+		public System.Data.Linq.Table<IkonyPrzedmiotow> IkonyPrzedmiotows
 		{
 			get
 			{
-				return this.GetTable<Gry>();
+				return this.GetTable<IkonyPrzedmiotow>();
 			}
 		}
 		
@@ -99,11 +99,11 @@ namespace Projekt_LOL
 			}
 		}
 		
-		public System.Data.Linq.Table<IkonyCzarow> IkonyCzarows
+		public System.Data.Linq.Table<Gry> Gries
 		{
 			get
 			{
-				return this.GetTable<IkonyCzarow>();
+				return this.GetTable<Gry>();
 			}
 		}
 		
@@ -115,11 +115,11 @@ namespace Projekt_LOL
 			}
 		}
 		
-		public System.Data.Linq.Table<IkonyPrzedmiotow> IkonyPrzedmiotows
+		public System.Data.Linq.Table<IkonyCzarow> IkonyCzarows
 		{
 			get
 			{
-				return this.GetTable<IkonyPrzedmiotow>();
+				return this.GetTable<IkonyCzarow>();
 			}
 		}
 		
@@ -137,6 +137,580 @@ namespace Projekt_LOL
 			{
 				return this.GetTable<Regiony>();
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.IkonyPrzedmiotow")]
+	public partial class IkonyPrzedmiotow : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _itemId;
+		
+		private string _ikona;
+		
+		private EntitySet<Gry> _Gries;
+		
+		private EntitySet<Gry> _Gries1;
+		
+		private EntitySet<Gry> _Gries2;
+		
+		private EntitySet<Gry> _Gries3;
+		
+		private EntitySet<Gry> _Gries4;
+		
+		private EntitySet<Gry> _Gries5;
+		
+		private EntitySet<Gry> _Gries6;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnitemIdChanging(int value);
+    partial void OnitemIdChanged();
+    partial void OnikonaChanging(string value);
+    partial void OnikonaChanged();
+    #endregion
+		
+		public IkonyPrzedmiotow()
+		{
+			this._Gries = new EntitySet<Gry>(new Action<Gry>(this.attach_Gries), new Action<Gry>(this.detach_Gries));
+			this._Gries1 = new EntitySet<Gry>(new Action<Gry>(this.attach_Gries1), new Action<Gry>(this.detach_Gries1));
+			this._Gries2 = new EntitySet<Gry>(new Action<Gry>(this.attach_Gries2), new Action<Gry>(this.detach_Gries2));
+			this._Gries3 = new EntitySet<Gry>(new Action<Gry>(this.attach_Gries3), new Action<Gry>(this.detach_Gries3));
+			this._Gries4 = new EntitySet<Gry>(new Action<Gry>(this.attach_Gries4), new Action<Gry>(this.detach_Gries4));
+			this._Gries5 = new EntitySet<Gry>(new Action<Gry>(this.attach_Gries5), new Action<Gry>(this.detach_Gries5));
+			this._Gries6 = new EntitySet<Gry>(new Action<Gry>(this.attach_Gries6), new Action<Gry>(this.detach_Gries6));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_itemId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int itemId
+		{
+			get
+			{
+				return this._itemId;
+			}
+			set
+			{
+				if ((this._itemId != value))
+				{
+					this.OnitemIdChanging(value);
+					this.SendPropertyChanging();
+					this._itemId = value;
+					this.SendPropertyChanged("itemId");
+					this.OnitemIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ikona", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string ikona
+		{
+			get
+			{
+				return this._ikona;
+			}
+			set
+			{
+				if ((this._ikona != value))
+				{
+					this.OnikonaChanging(value);
+					this.SendPropertyChanging();
+					this._ikona = value;
+					this.SendPropertyChanged("ikona");
+					this.OnikonaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyPrzedmiotow_Gry", Storage="_Gries", ThisKey="itemId", OtherKey="item0")]
+		public EntitySet<Gry> Gries
+		{
+			get
+			{
+				return this._Gries;
+			}
+			set
+			{
+				this._Gries.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyPrzedmiotow_Gry1", Storage="_Gries1", ThisKey="itemId", OtherKey="item1")]
+		public EntitySet<Gry> Gries1
+		{
+			get
+			{
+				return this._Gries1;
+			}
+			set
+			{
+				this._Gries1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyPrzedmiotow_Gry2", Storage="_Gries2", ThisKey="itemId", OtherKey="item2")]
+		public EntitySet<Gry> Gries2
+		{
+			get
+			{
+				return this._Gries2;
+			}
+			set
+			{
+				this._Gries2.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyPrzedmiotow_Gry3", Storage="_Gries3", ThisKey="itemId", OtherKey="item3")]
+		public EntitySet<Gry> Gries3
+		{
+			get
+			{
+				return this._Gries3;
+			}
+			set
+			{
+				this._Gries3.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyPrzedmiotow_Gry4", Storage="_Gries4", ThisKey="itemId", OtherKey="item4")]
+		public EntitySet<Gry> Gries4
+		{
+			get
+			{
+				return this._Gries4;
+			}
+			set
+			{
+				this._Gries4.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyPrzedmiotow_Gry5", Storage="_Gries5", ThisKey="itemId", OtherKey="item5")]
+		public EntitySet<Gry> Gries5
+		{
+			get
+			{
+				return this._Gries5;
+			}
+			set
+			{
+				this._Gries5.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyPrzedmiotow_Gry6", Storage="_Gries6", ThisKey="itemId", OtherKey="item6")]
+		public EntitySet<Gry> Gries6
+		{
+			get
+			{
+				return this._Gries6;
+			}
+			set
+			{
+				this._Gries6.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Gries(Gry entity)
+		{
+			this.SendPropertyChanging();
+			entity.IkonyPrzedmiotow = this;
+		}
+		
+		private void detach_Gries(Gry entity)
+		{
+			this.SendPropertyChanging();
+			entity.IkonyPrzedmiotow = null;
+		}
+		
+		private void attach_Gries1(Gry entity)
+		{
+			this.SendPropertyChanging();
+			entity.IkonyPrzedmiotow1 = this;
+		}
+		
+		private void detach_Gries1(Gry entity)
+		{
+			this.SendPropertyChanging();
+			entity.IkonyPrzedmiotow1 = null;
+		}
+		
+		private void attach_Gries2(Gry entity)
+		{
+			this.SendPropertyChanging();
+			entity.IkonyPrzedmiotow2 = this;
+		}
+		
+		private void detach_Gries2(Gry entity)
+		{
+			this.SendPropertyChanging();
+			entity.IkonyPrzedmiotow2 = null;
+		}
+		
+		private void attach_Gries3(Gry entity)
+		{
+			this.SendPropertyChanging();
+			entity.IkonyPrzedmiotow3 = this;
+		}
+		
+		private void detach_Gries3(Gry entity)
+		{
+			this.SendPropertyChanging();
+			entity.IkonyPrzedmiotow3 = null;
+		}
+		
+		private void attach_Gries4(Gry entity)
+		{
+			this.SendPropertyChanging();
+			entity.IkonyPrzedmiotow4 = this;
+		}
+		
+		private void detach_Gries4(Gry entity)
+		{
+			this.SendPropertyChanging();
+			entity.IkonyPrzedmiotow4 = null;
+		}
+		
+		private void attach_Gries5(Gry entity)
+		{
+			this.SendPropertyChanging();
+			entity.IkonyPrzedmiotow5 = this;
+		}
+		
+		private void detach_Gries5(Gry entity)
+		{
+			this.SendPropertyChanging();
+			entity.IkonyPrzedmiotow5 = null;
+		}
+		
+		private void attach_Gries6(Gry entity)
+		{
+			this.SendPropertyChanging();
+			entity.IkonyPrzedmiotow6 = this;
+		}
+		
+		private void detach_Gries6(Gry entity)
+		{
+			this.SendPropertyChanging();
+			entity.IkonyPrzedmiotow6 = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Gracze")]
+	public partial class Gracze : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _Id;
+		
+		private string _name;
+		
+		private int _profileIconId;
+		
+		private long _revisionDate;
+		
+		private long _summonerLevel;
+		
+		private int _idRegionu;
+		
+		private EntitySet<Gry> _Gries;
+		
+		private EntityRef<IkonyGraczy> _IkonyGraczy;
+		
+		private EntityRef<Regiony> _Regiony;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(long value);
+    partial void OnIdChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    partial void OnprofileIconIdChanging(int value);
+    partial void OnprofileIconIdChanged();
+    partial void OnrevisionDateChanging(long value);
+    partial void OnrevisionDateChanged();
+    partial void OnsummonerLevelChanging(long value);
+    partial void OnsummonerLevelChanged();
+    partial void OnidRegionuChanging(int value);
+    partial void OnidRegionuChanged();
+    #endregion
+		
+		public Gracze()
+		{
+			this._Gries = new EntitySet<Gry>(new Action<Gry>(this.attach_Gries), new Action<Gry>(this.detach_Gries));
+			this._IkonyGraczy = default(EntityRef<IkonyGraczy>);
+			this._Regiony = default(EntityRef<Regiony>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_profileIconId", DbType="Int NOT NULL")]
+		public int profileIconId
+		{
+			get
+			{
+				return this._profileIconId;
+			}
+			set
+			{
+				if ((this._profileIconId != value))
+				{
+					if (this._IkonyGraczy.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnprofileIconIdChanging(value);
+					this.SendPropertyChanging();
+					this._profileIconId = value;
+					this.SendPropertyChanged("profileIconId");
+					this.OnprofileIconIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_revisionDate", DbType="BigInt NOT NULL")]
+		public long revisionDate
+		{
+			get
+			{
+				return this._revisionDate;
+			}
+			set
+			{
+				if ((this._revisionDate != value))
+				{
+					this.OnrevisionDateChanging(value);
+					this.SendPropertyChanging();
+					this._revisionDate = value;
+					this.SendPropertyChanged("revisionDate");
+					this.OnrevisionDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_summonerLevel", DbType="BigInt NOT NULL")]
+		public long summonerLevel
+		{
+			get
+			{
+				return this._summonerLevel;
+			}
+			set
+			{
+				if ((this._summonerLevel != value))
+				{
+					this.OnsummonerLevelChanging(value);
+					this.SendPropertyChanging();
+					this._summonerLevel = value;
+					this.SendPropertyChanged("summonerLevel");
+					this.OnsummonerLevelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idRegionu", DbType="Int NOT NULL")]
+		public int idRegionu
+		{
+			get
+			{
+				return this._idRegionu;
+			}
+			set
+			{
+				if ((this._idRegionu != value))
+				{
+					if (this._Regiony.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidRegionuChanging(value);
+					this.SendPropertyChanging();
+					this._idRegionu = value;
+					this.SendPropertyChanged("idRegionu");
+					this.OnidRegionuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Gracze_Gry", Storage="_Gries", ThisKey="Id", OtherKey="summonerId")]
+		public EntitySet<Gry> Gries
+		{
+			get
+			{
+				return this._Gries;
+			}
+			set
+			{
+				this._Gries.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyGraczy_Gracze", Storage="_IkonyGraczy", ThisKey="profileIconId", OtherKey="profileIconId", IsForeignKey=true)]
+		public IkonyGraczy IkonyGraczy
+		{
+			get
+			{
+				return this._IkonyGraczy.Entity;
+			}
+			set
+			{
+				IkonyGraczy previousValue = this._IkonyGraczy.Entity;
+				if (((previousValue != value) 
+							|| (this._IkonyGraczy.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._IkonyGraczy.Entity = null;
+						previousValue.Graczes.Remove(this);
+					}
+					this._IkonyGraczy.Entity = value;
+					if ((value != null))
+					{
+						value.Graczes.Add(this);
+						this._profileIconId = value.profileIconId;
+					}
+					else
+					{
+						this._profileIconId = default(int);
+					}
+					this.SendPropertyChanged("IkonyGraczy");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Regiony_Gracze", Storage="_Regiony", ThisKey="idRegionu", OtherKey="Id", IsForeignKey=true)]
+		public Regiony Regiony
+		{
+			get
+			{
+				return this._Regiony.Entity;
+			}
+			set
+			{
+				Regiony previousValue = this._Regiony.Entity;
+				if (((previousValue != value) 
+							|| (this._Regiony.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Regiony.Entity = null;
+						previousValue.Graczes.Remove(this);
+					}
+					this._Regiony.Entity = value;
+					if ((value != null))
+					{
+						value.Graczes.Add(this);
+						this._idRegionu = value.Id;
+					}
+					else
+					{
+						this._idRegionu = default(int);
+					}
+					this.SendPropertyChanged("Regiony");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Gries(Gry entity)
+		{
+			this.SendPropertyChanging();
+			entity.Gracze = this;
+		}
+		
+		private void detach_Gries(Gry entity)
+		{
+			this.SendPropertyChanging();
+			entity.Gracze = null;
 		}
 	}
 	
@@ -232,10 +806,6 @@ namespace Projekt_LOL
 		
 		private EntityRef<Gracze> _Gracze;
 		
-		private EntityRef<IkonyCzarow> _IkonyCzarow;
-		
-		private EntityRef<IkonyCzarow> _IkonyCzarow1;
-		
 		private EntityRef<IkonyPrzedmiotow> _IkonyPrzedmiotow;
 		
 		private EntityRef<IkonyPrzedmiotow> _IkonyPrzedmiotow1;
@@ -249,6 +819,10 @@ namespace Projekt_LOL
 		private EntityRef<IkonyPrzedmiotow> _IkonyPrzedmiotow5;
 		
 		private EntityRef<IkonyPrzedmiotow> _IkonyPrzedmiotow6;
+		
+		private EntityRef<IkonyCzarow> _IkonyCzarow;
+		
+		private EntityRef<IkonyCzarow> _IkonyCzarow1;
 		
 		private EntityRef<Postacie> _Postacie;
 		
@@ -345,8 +919,6 @@ namespace Projekt_LOL
 		public Gry()
 		{
 			this._Gracze = default(EntityRef<Gracze>);
-			this._IkonyCzarow = default(EntityRef<IkonyCzarow>);
-			this._IkonyCzarow1 = default(EntityRef<IkonyCzarow>);
 			this._IkonyPrzedmiotow = default(EntityRef<IkonyPrzedmiotow>);
 			this._IkonyPrzedmiotow1 = default(EntityRef<IkonyPrzedmiotow>);
 			this._IkonyPrzedmiotow2 = default(EntityRef<IkonyPrzedmiotow>);
@@ -354,6 +926,8 @@ namespace Projekt_LOL
 			this._IkonyPrzedmiotow4 = default(EntityRef<IkonyPrzedmiotow>);
 			this._IkonyPrzedmiotow5 = default(EntityRef<IkonyPrzedmiotow>);
 			this._IkonyPrzedmiotow6 = default(EntityRef<IkonyPrzedmiotow>);
+			this._IkonyCzarow = default(EntityRef<IkonyCzarow>);
+			this._IkonyCzarow1 = default(EntityRef<IkonyCzarow>);
 			this._Postacie = default(EntityRef<Postacie>);
 			OnCreated();
 		}
@@ -1276,74 +1850,6 @@ namespace Projekt_LOL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyCzarow_Gry", Storage="_IkonyCzarow", ThisKey="spell1", OtherKey="spellId", IsForeignKey=true)]
-		public IkonyCzarow IkonyCzarow
-		{
-			get
-			{
-				return this._IkonyCzarow.Entity;
-			}
-			set
-			{
-				IkonyCzarow previousValue = this._IkonyCzarow.Entity;
-				if (((previousValue != value) 
-							|| (this._IkonyCzarow.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._IkonyCzarow.Entity = null;
-						previousValue.Gries.Remove(this);
-					}
-					this._IkonyCzarow.Entity = value;
-					if ((value != null))
-					{
-						value.Gries.Add(this);
-						this._spell1 = value.spellId;
-					}
-					else
-					{
-						this._spell1 = default(int);
-					}
-					this.SendPropertyChanged("IkonyCzarow");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyCzarow_Gry1", Storage="_IkonyCzarow1", ThisKey="spell2", OtherKey="spellId", IsForeignKey=true)]
-		public IkonyCzarow IkonyCzarow1
-		{
-			get
-			{
-				return this._IkonyCzarow1.Entity;
-			}
-			set
-			{
-				IkonyCzarow previousValue = this._IkonyCzarow1.Entity;
-				if (((previousValue != value) 
-							|| (this._IkonyCzarow1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._IkonyCzarow1.Entity = null;
-						previousValue.Gries1.Remove(this);
-					}
-					this._IkonyCzarow1.Entity = value;
-					if ((value != null))
-					{
-						value.Gries1.Add(this);
-						this._spell2 = value.spellId;
-					}
-					else
-					{
-						this._spell2 = default(int);
-					}
-					this.SendPropertyChanged("IkonyCzarow1");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyPrzedmiotow_Gry", Storage="_IkonyPrzedmiotow", ThisKey="item0", OtherKey="itemId", IsForeignKey=true)]
 		public IkonyPrzedmiotow IkonyPrzedmiotow
 		{
@@ -1582,6 +2088,74 @@ namespace Projekt_LOL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyCzarow_Gry", Storage="_IkonyCzarow", ThisKey="spell1", OtherKey="spellId", IsForeignKey=true)]
+		public IkonyCzarow IkonyCzarow
+		{
+			get
+			{
+				return this._IkonyCzarow.Entity;
+			}
+			set
+			{
+				IkonyCzarow previousValue = this._IkonyCzarow.Entity;
+				if (((previousValue != value) 
+							|| (this._IkonyCzarow.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._IkonyCzarow.Entity = null;
+						previousValue.Gries.Remove(this);
+					}
+					this._IkonyCzarow.Entity = value;
+					if ((value != null))
+					{
+						value.Gries.Add(this);
+						this._spell1 = value.spellId;
+					}
+					else
+					{
+						this._spell1 = default(int);
+					}
+					this.SendPropertyChanged("IkonyCzarow");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyCzarow_Gry1", Storage="_IkonyCzarow1", ThisKey="spell2", OtherKey="spellId", IsForeignKey=true)]
+		public IkonyCzarow IkonyCzarow1
+		{
+			get
+			{
+				return this._IkonyCzarow1.Entity;
+			}
+			set
+			{
+				IkonyCzarow previousValue = this._IkonyCzarow1.Entity;
+				if (((previousValue != value) 
+							|| (this._IkonyCzarow1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._IkonyCzarow1.Entity = null;
+						previousValue.Gries1.Remove(this);
+					}
+					this._IkonyCzarow1.Entity = value;
+					if ((value != null))
+					{
+						value.Gries1.Add(this);
+						this._spell2 = value.spellId;
+					}
+					else
+					{
+						this._spell2 = default(int);
+					}
+					this.SendPropertyChanged("IkonyCzarow1");
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Postacie_Gry", Storage="_Postacie", ThisKey="championId", OtherKey="championId", IsForeignKey=true)]
 		public Postacie Postacie
 		{
@@ -1637,97 +2211,35 @@ namespace Projekt_LOL
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Gracze")]
-	public partial class Gracze : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.IkonyGraczy")]
+	public partial class IkonyGraczy : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private long _Id;
-		
-		private string _name;
-		
 		private int _profileIconId;
 		
-		private long _revisionDate;
+		private string _ikona;
 		
-		private long _summonerLevel;
-		
-		private int _idRegionu;
-		
-		private EntitySet<Gry> _Gries;
-		
-		private EntityRef<IkonyGraczy> _IkonyGraczy;
-		
-		private EntityRef<Regiony> _Regiony;
+		private EntitySet<Gracze> _Graczes;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnIdChanging(long value);
-    partial void OnIdChanged();
-    partial void OnnameChanging(string value);
-    partial void OnnameChanged();
     partial void OnprofileIconIdChanging(int value);
     partial void OnprofileIconIdChanged();
-    partial void OnrevisionDateChanging(long value);
-    partial void OnrevisionDateChanged();
-    partial void OnsummonerLevelChanging(long value);
-    partial void OnsummonerLevelChanged();
-    partial void OnidRegionuChanging(int value);
-    partial void OnidRegionuChanged();
+    partial void OnikonaChanging(string value);
+    partial void OnikonaChanged();
     #endregion
 		
-		public Gracze()
+		public IkonyGraczy()
 		{
-			this._Gries = new EntitySet<Gry>(new Action<Gry>(this.attach_Gries), new Action<Gry>(this.detach_Gries));
-			this._IkonyGraczy = default(EntityRef<IkonyGraczy>);
-			this._Regiony = default(EntityRef<Regiony>);
+			this._Graczes = new EntitySet<Gracze>(new Action<Gracze>(this.attach_Graczes), new Action<Gracze>(this.detach_Graczes));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
-		public string name
-		{
-			get
-			{
-				return this._name;
-			}
-			set
-			{
-				if ((this._name != value))
-				{
-					this.OnnameChanging(value);
-					this.SendPropertyChanging();
-					this._name = value;
-					this.SendPropertyChanged("name");
-					this.OnnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_profileIconId", DbType="Int NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_profileIconId", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int profileIconId
 		{
 			get
@@ -1738,10 +2250,6 @@ namespace Projekt_LOL
 			{
 				if ((this._profileIconId != value))
 				{
-					if (this._IkonyGraczy.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnprofileIconIdChanging(value);
 					this.SendPropertyChanging();
 					this._profileIconId = value;
@@ -1751,148 +2259,36 @@ namespace Projekt_LOL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_revisionDate", DbType="BigInt NOT NULL")]
-		public long revisionDate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ikona", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string ikona
 		{
 			get
 			{
-				return this._revisionDate;
+				return this._ikona;
 			}
 			set
 			{
-				if ((this._revisionDate != value))
+				if ((this._ikona != value))
 				{
-					this.OnrevisionDateChanging(value);
+					this.OnikonaChanging(value);
 					this.SendPropertyChanging();
-					this._revisionDate = value;
-					this.SendPropertyChanged("revisionDate");
-					this.OnrevisionDateChanged();
+					this._ikona = value;
+					this.SendPropertyChanged("ikona");
+					this.OnikonaChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_summonerLevel", DbType="BigInt NOT NULL")]
-		public long summonerLevel
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyGraczy_Gracze", Storage="_Graczes", ThisKey="profileIconId", OtherKey="profileIconId")]
+		public EntitySet<Gracze> Graczes
 		{
 			get
 			{
-				return this._summonerLevel;
+				return this._Graczes;
 			}
 			set
 			{
-				if ((this._summonerLevel != value))
-				{
-					this.OnsummonerLevelChanging(value);
-					this.SendPropertyChanging();
-					this._summonerLevel = value;
-					this.SendPropertyChanged("summonerLevel");
-					this.OnsummonerLevelChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idRegionu", DbType="Int NOT NULL")]
-		public int idRegionu
-		{
-			get
-			{
-				return this._idRegionu;
-			}
-			set
-			{
-				if ((this._idRegionu != value))
-				{
-					if (this._Regiony.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnidRegionuChanging(value);
-					this.SendPropertyChanging();
-					this._idRegionu = value;
-					this.SendPropertyChanged("idRegionu");
-					this.OnidRegionuChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Gracze_Gry", Storage="_Gries", ThisKey="Id", OtherKey="summonerId")]
-		public EntitySet<Gry> Gries
-		{
-			get
-			{
-				return this._Gries;
-			}
-			set
-			{
-				this._Gries.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyGraczy_Gracze", Storage="_IkonyGraczy", ThisKey="profileIconId", OtherKey="profileIconId", IsForeignKey=true)]
-		public IkonyGraczy IkonyGraczy
-		{
-			get
-			{
-				return this._IkonyGraczy.Entity;
-			}
-			set
-			{
-				IkonyGraczy previousValue = this._IkonyGraczy.Entity;
-				if (((previousValue != value) 
-							|| (this._IkonyGraczy.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._IkonyGraczy.Entity = null;
-						previousValue.Graczes.Remove(this);
-					}
-					this._IkonyGraczy.Entity = value;
-					if ((value != null))
-					{
-						value.Graczes.Add(this);
-						this._profileIconId = value.profileIconId;
-					}
-					else
-					{
-						this._profileIconId = default(int);
-					}
-					this.SendPropertyChanged("IkonyGraczy");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Regiony_Gracze", Storage="_Regiony", ThisKey="idRegionu", OtherKey="Id", IsForeignKey=true)]
-		public Regiony Regiony
-		{
-			get
-			{
-				return this._Regiony.Entity;
-			}
-			set
-			{
-				Regiony previousValue = this._Regiony.Entity;
-				if (((previousValue != value) 
-							|| (this._Regiony.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Regiony.Entity = null;
-						previousValue.Graczes.Remove(this);
-					}
-					this._Regiony.Entity = value;
-					if ((value != null))
-					{
-						value.Graczes.Add(this);
-						this._idRegionu = value.Id;
-					}
-					else
-					{
-						this._idRegionu = default(int);
-					}
-					this.SendPropertyChanged("Regiony");
-				}
+				this._Graczes.Assign(value);
 			}
 		}
 		
@@ -1916,16 +2312,16 @@ namespace Projekt_LOL
 			}
 		}
 		
-		private void attach_Gries(Gry entity)
+		private void attach_Graczes(Gracze entity)
 		{
 			this.SendPropertyChanging();
-			entity.Gracze = this;
+			entity.IkonyGraczy = this;
 		}
 		
-		private void detach_Gries(Gry entity)
+		private void detach_Graczes(Gracze entity)
 		{
 			this.SendPropertyChanging();
-			entity.Gracze = null;
+			entity.IkonyGraczy = null;
 		}
 	}
 	
@@ -1937,7 +2333,7 @@ namespace Projekt_LOL
 		
 		private int _spellId;
 		
-		private System.Data.Linq.Binary _ikona;
+		private string _ikona;
 		
 		private EntitySet<Gry> _Gries;
 		
@@ -1949,7 +2345,7 @@ namespace Projekt_LOL
     partial void OnCreated();
     partial void OnspellIdChanging(int value);
     partial void OnspellIdChanged();
-    partial void OnikonaChanging(System.Data.Linq.Binary value);
+    partial void OnikonaChanging(string value);
     partial void OnikonaChanged();
     #endregion
 		
@@ -1980,8 +2376,8 @@ namespace Projekt_LOL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ikona", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary ikona
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ikona", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string ikona
 		{
 			get
 			{
@@ -2068,402 +2464,6 @@ namespace Projekt_LOL
 		{
 			this.SendPropertyChanging();
 			entity.IkonyCzarow1 = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.IkonyGraczy")]
-	public partial class IkonyGraczy : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _profileIconId;
-		
-		private System.Data.Linq.Binary _ikona;
-		
-		private EntitySet<Gracze> _Graczes;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnprofileIconIdChanging(int value);
-    partial void OnprofileIconIdChanged();
-    partial void OnikonaChanging(System.Data.Linq.Binary value);
-    partial void OnikonaChanged();
-    #endregion
-		
-		public IkonyGraczy()
-		{
-			this._Graczes = new EntitySet<Gracze>(new Action<Gracze>(this.attach_Graczes), new Action<Gracze>(this.detach_Graczes));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_profileIconId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int profileIconId
-		{
-			get
-			{
-				return this._profileIconId;
-			}
-			set
-			{
-				if ((this._profileIconId != value))
-				{
-					this.OnprofileIconIdChanging(value);
-					this.SendPropertyChanging();
-					this._profileIconId = value;
-					this.SendPropertyChanged("profileIconId");
-					this.OnprofileIconIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ikona", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary ikona
-		{
-			get
-			{
-				return this._ikona;
-			}
-			set
-			{
-				if ((this._ikona != value))
-				{
-					this.OnikonaChanging(value);
-					this.SendPropertyChanging();
-					this._ikona = value;
-					this.SendPropertyChanged("ikona");
-					this.OnikonaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyGraczy_Gracze", Storage="_Graczes", ThisKey="profileIconId", OtherKey="profileIconId")]
-		public EntitySet<Gracze> Graczes
-		{
-			get
-			{
-				return this._Graczes;
-			}
-			set
-			{
-				this._Graczes.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Graczes(Gracze entity)
-		{
-			this.SendPropertyChanging();
-			entity.IkonyGraczy = this;
-		}
-		
-		private void detach_Graczes(Gracze entity)
-		{
-			this.SendPropertyChanging();
-			entity.IkonyGraczy = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.IkonyPrzedmiotow")]
-	public partial class IkonyPrzedmiotow : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _itemId;
-		
-		private System.Data.Linq.Binary _ikona;
-		
-		private EntitySet<Gry> _Gries;
-		
-		private EntitySet<Gry> _Gries1;
-		
-		private EntitySet<Gry> _Gries2;
-		
-		private EntitySet<Gry> _Gries3;
-		
-		private EntitySet<Gry> _Gries4;
-		
-		private EntitySet<Gry> _Gries5;
-		
-		private EntitySet<Gry> _Gries6;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnitemIdChanging(int value);
-    partial void OnitemIdChanged();
-    partial void OnikonaChanging(System.Data.Linq.Binary value);
-    partial void OnikonaChanged();
-    #endregion
-		
-		public IkonyPrzedmiotow()
-		{
-			this._Gries = new EntitySet<Gry>(new Action<Gry>(this.attach_Gries), new Action<Gry>(this.detach_Gries));
-			this._Gries1 = new EntitySet<Gry>(new Action<Gry>(this.attach_Gries1), new Action<Gry>(this.detach_Gries1));
-			this._Gries2 = new EntitySet<Gry>(new Action<Gry>(this.attach_Gries2), new Action<Gry>(this.detach_Gries2));
-			this._Gries3 = new EntitySet<Gry>(new Action<Gry>(this.attach_Gries3), new Action<Gry>(this.detach_Gries3));
-			this._Gries4 = new EntitySet<Gry>(new Action<Gry>(this.attach_Gries4), new Action<Gry>(this.detach_Gries4));
-			this._Gries5 = new EntitySet<Gry>(new Action<Gry>(this.attach_Gries5), new Action<Gry>(this.detach_Gries5));
-			this._Gries6 = new EntitySet<Gry>(new Action<Gry>(this.attach_Gries6), new Action<Gry>(this.detach_Gries6));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_itemId", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int itemId
-		{
-			get
-			{
-				return this._itemId;
-			}
-			set
-			{
-				if ((this._itemId != value))
-				{
-					this.OnitemIdChanging(value);
-					this.SendPropertyChanging();
-					this._itemId = value;
-					this.SendPropertyChanged("itemId");
-					this.OnitemIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ikona", DbType="Image NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary ikona
-		{
-			get
-			{
-				return this._ikona;
-			}
-			set
-			{
-				if ((this._ikona != value))
-				{
-					this.OnikonaChanging(value);
-					this.SendPropertyChanging();
-					this._ikona = value;
-					this.SendPropertyChanged("ikona");
-					this.OnikonaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyPrzedmiotow_Gry", Storage="_Gries", ThisKey="itemId", OtherKey="item0")]
-		public EntitySet<Gry> Gries
-		{
-			get
-			{
-				return this._Gries;
-			}
-			set
-			{
-				this._Gries.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyPrzedmiotow_Gry1", Storage="_Gries1", ThisKey="itemId", OtherKey="item1")]
-		public EntitySet<Gry> Gries1
-		{
-			get
-			{
-				return this._Gries1;
-			}
-			set
-			{
-				this._Gries1.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyPrzedmiotow_Gry2", Storage="_Gries2", ThisKey="itemId", OtherKey="item2")]
-		public EntitySet<Gry> Gries2
-		{
-			get
-			{
-				return this._Gries2;
-			}
-			set
-			{
-				this._Gries2.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyPrzedmiotow_Gry3", Storage="_Gries3", ThisKey="itemId", OtherKey="item3")]
-		public EntitySet<Gry> Gries3
-		{
-			get
-			{
-				return this._Gries3;
-			}
-			set
-			{
-				this._Gries3.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyPrzedmiotow_Gry4", Storage="_Gries4", ThisKey="itemId", OtherKey="item4")]
-		public EntitySet<Gry> Gries4
-		{
-			get
-			{
-				return this._Gries4;
-			}
-			set
-			{
-				this._Gries4.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyPrzedmiotow_Gry5", Storage="_Gries5", ThisKey="itemId", OtherKey="item5")]
-		public EntitySet<Gry> Gries5
-		{
-			get
-			{
-				return this._Gries5;
-			}
-			set
-			{
-				this._Gries5.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="IkonyPrzedmiotow_Gry6", Storage="_Gries6", ThisKey="itemId", OtherKey="item6")]
-		public EntitySet<Gry> Gries6
-		{
-			get
-			{
-				return this._Gries6;
-			}
-			set
-			{
-				this._Gries6.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Gries(Gry entity)
-		{
-			this.SendPropertyChanging();
-			entity.IkonyPrzedmiotow = this;
-		}
-		
-		private void detach_Gries(Gry entity)
-		{
-			this.SendPropertyChanging();
-			entity.IkonyPrzedmiotow = null;
-		}
-		
-		private void attach_Gries1(Gry entity)
-		{
-			this.SendPropertyChanging();
-			entity.IkonyPrzedmiotow1 = this;
-		}
-		
-		private void detach_Gries1(Gry entity)
-		{
-			this.SendPropertyChanging();
-			entity.IkonyPrzedmiotow1 = null;
-		}
-		
-		private void attach_Gries2(Gry entity)
-		{
-			this.SendPropertyChanging();
-			entity.IkonyPrzedmiotow2 = this;
-		}
-		
-		private void detach_Gries2(Gry entity)
-		{
-			this.SendPropertyChanging();
-			entity.IkonyPrzedmiotow2 = null;
-		}
-		
-		private void attach_Gries3(Gry entity)
-		{
-			this.SendPropertyChanging();
-			entity.IkonyPrzedmiotow3 = this;
-		}
-		
-		private void detach_Gries3(Gry entity)
-		{
-			this.SendPropertyChanging();
-			entity.IkonyPrzedmiotow3 = null;
-		}
-		
-		private void attach_Gries4(Gry entity)
-		{
-			this.SendPropertyChanging();
-			entity.IkonyPrzedmiotow4 = this;
-		}
-		
-		private void detach_Gries4(Gry entity)
-		{
-			this.SendPropertyChanging();
-			entity.IkonyPrzedmiotow4 = null;
-		}
-		
-		private void attach_Gries5(Gry entity)
-		{
-			this.SendPropertyChanging();
-			entity.IkonyPrzedmiotow5 = this;
-		}
-		
-		private void detach_Gries5(Gry entity)
-		{
-			this.SendPropertyChanging();
-			entity.IkonyPrzedmiotow5 = null;
-		}
-		
-		private void attach_Gries6(Gry entity)
-		{
-			this.SendPropertyChanging();
-			entity.IkonyPrzedmiotow6 = this;
-		}
-		
-		private void detach_Gries6(Gry entity)
-		{
-			this.SendPropertyChanging();
-			entity.IkonyPrzedmiotow6 = null;
 		}
 	}
 	

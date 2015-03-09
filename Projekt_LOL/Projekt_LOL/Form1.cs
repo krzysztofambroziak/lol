@@ -31,5 +31,47 @@ namespace Projekt_LOL
             ListaGierJson ostatnieGry = JsonConvert.DeserializeObject<ListaGierJson>(content2);
             richTextBox1.Text = richTextBox1.Text +"\n"+ content2;        
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'bazaDataSet.Regiony' table. You can move, or remove it, as needed.
+            this.regionyTableAdapter.Fill(this.bazaDataSet.Regiony);
+
+        }
+
+        private void buttonDodajGracza_Click(object sender, EventArgs e)
+        {
+            string content = client.DownloadString("https://"+comboBoxDodajGracza.Text+".api.pvp.net/api/lol/" + comboBoxDodajGracza.Text + "/v1.4/summoner/by-name/" + textBoxDodajGracza.Text + "?api_key=f4d10937-bd33-42ac-80ef-62290e4755bf");
+            Dictionary<string, GraczJson> ListaGraczy = JsonConvert.DeserializeObject<Dictionary<string, GraczJson>>(content);
+
+            BazaDataContext baza = new BazaDataContext();
+
+
+            IkonyGraczy ikona = new IkonyGraczy
+            {
+                profileIconId = ListaGraczy[textBoxDodajGracza.Text.Replace(" ", "")].profileIconId,
+            };
+
+            if (baza.IkonyGraczies.Contains(ikona)==false)
+            {
+                client.DownloadFile("http://ddragon.leagueoflegends.com/cdn/5.2.1/img/profileicon/" + ikona.profileIconId + ".png",ikona.profileIconId + ".png");
+                ikona.ikona = ikona.profileIconId + ".png";
+                baza.IkonyGraczies.InsertOnSubmit(ikona);
+            }
+
+            Gracze gracz = new Gracze()
+            {
+                Id = ListaGraczy[textBoxDodajGracza.Text.Replace(" ","")].id,
+                name = ListaGraczy[textBoxDodajGracza.Text.Replace(" ", "")].name,
+                profileIconId = ListaGraczy[textBoxDodajGracza.Text.Replace(" ", "")].profileIconId,
+                revisionDate = ListaGraczy[textBoxDodajGracza.Text.Replace(" ", "")].revisionDate,
+                summonerLevel = ListaGraczy[textBoxDodajGracza.Text.Replace(" ", "")].summonerLevel,
+                idRegionu = (int)comboBoxDodajGracza.SelectedValue,
+            };
+                       
+
+            baza.Graczes.InsertOnSubmit(gracz);
+            baza.SubmitChanges();
+        }
     }
 }

@@ -28,8 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.buttonDodajGracza = new System.Windows.Forms.Button();
+            this.textBoxDodajGracza = new System.Windows.Forms.TextBox();
+            this.comboBoxDodajGracza = new System.Windows.Forms.ComboBox();
+            this.bazaDataSet = new Projekt_LOL.bazaDataSet();
+            this.regionyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.regionyTableAdapter = new Projekt_LOL.bazaDataSetTableAdapters.RegionyTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.bazaDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.regionyBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -50,16 +59,65 @@
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             // 
+            // buttonDodajGracza
+            // 
+            this.buttonDodajGracza.Location = new System.Drawing.Point(12, 314);
+            this.buttonDodajGracza.Name = "buttonDodajGracza";
+            this.buttonDodajGracza.Size = new System.Drawing.Size(138, 20);
+            this.buttonDodajGracza.TabIndex = 2;
+            this.buttonDodajGracza.Text = "Dodaj Gracza";
+            this.buttonDodajGracza.UseVisualStyleBackColor = true;
+            this.buttonDodajGracza.Click += new System.EventHandler(this.buttonDodajGracza_Click);
+            // 
+            // textBoxDodajGracza
+            // 
+            this.textBoxDodajGracza.Location = new System.Drawing.Point(156, 314);
+            this.textBoxDodajGracza.Name = "textBoxDodajGracza";
+            this.textBoxDodajGracza.Size = new System.Drawing.Size(140, 20);
+            this.textBoxDodajGracza.TabIndex = 3;
+            // 
+            // comboBoxDodajGracza
+            // 
+            this.comboBoxDodajGracza.DataSource = this.regionyBindingSource;
+            this.comboBoxDodajGracza.DisplayMember = "name";
+            this.comboBoxDodajGracza.FormattingEnabled = true;
+            this.comboBoxDodajGracza.Location = new System.Drawing.Point(302, 315);
+            this.comboBoxDodajGracza.Name = "comboBoxDodajGracza";
+            this.comboBoxDodajGracza.Size = new System.Drawing.Size(61, 21);
+            this.comboBoxDodajGracza.TabIndex = 4;
+            this.comboBoxDodajGracza.ValueMember = "Id";
+            // 
+            // bazaDataSet
+            // 
+            this.bazaDataSet.DataSetName = "bazaDataSet";
+            this.bazaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // regionyBindingSource
+            // 
+            this.regionyBindingSource.DataMember = "Regiony";
+            this.regionyBindingSource.DataSource = this.bazaDataSet;
+            // 
+            // regionyTableAdapter
+            // 
+            this.regionyTableAdapter.ClearBeforeFill = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(319, 279);
+            this.ClientSize = new System.Drawing.Size(498, 350);
+            this.Controls.Add(this.comboBoxDodajGracza);
+            this.Controls.Add(this.textBoxDodajGracza);
+            this.Controls.Add(this.buttonDodajGracza);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bazaDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.regionyBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -67,6 +125,12 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button buttonDodajGracza;
+        private System.Windows.Forms.TextBox textBoxDodajGracza;
+        private System.Windows.Forms.ComboBox comboBoxDodajGracza;
+        private bazaDataSet bazaDataSet;
+        private System.Windows.Forms.BindingSource regionyBindingSource;
+        private bazaDataSetTableAdapters.RegionyTableAdapter regionyTableAdapter;
     }
 }
 
