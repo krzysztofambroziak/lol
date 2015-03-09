@@ -46,6 +46,17 @@ namespace Projekt_LOL
 
             BazaDataContext baza = new BazaDataContext();
 
+            Gracze graczsprawdz = new Gracze()
+            {
+                Id = ListaGraczy[textBoxDodajGracza.Text.Replace(" ", "")].id,
+            };
+
+            if(baza.Graczes.Contains(graczsprawdz))
+            {
+                textBoxDodajGracza.Text = "pograny gracz juz istnieje";
+            }
+            else
+            {
 
             IkonyGraczy ikona = new IkonyGraczy
             {
@@ -72,6 +83,8 @@ namespace Projekt_LOL
 
             baza.Graczes.InsertOnSubmit(gracz);
             baza.SubmitChanges();
+
+            }
         }
 
         private void buttonAktualizujGry_Click(object sender, EventArgs e)
