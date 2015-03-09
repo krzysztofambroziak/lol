@@ -85,16 +85,91 @@ namespace Projekt_LOL
 
                 foreach(GraJson gra in ostatnieGry.games)
                 {
-                    IkonyCzarow ikonaCzaru = new IkonyCzarow
+                    IkonyPrzedmiotow ikona1 = new IkonyPrzedmiotow
                     {
-                        spellId = gra.spell1;
+                        itemId= gra.stats.item1,
                     };
 
-                    if (baza.IkonyCzarows.Contains( == false)
+                    if (baza.IkonyPrzedmiotows.Contains(ikona1) == false && ikona1.itemId!=0)
                     {
-                        client.DownloadFile("http://ddragon.leagueoflegends.com/cdn/5.2.1/img/profileicon/" + ikona.profileIconId + ".png", ikona.profileIconId + ".png");
-                        ikonaCzaru. = ikona.profileIconId + ".png";
-                        baza.IkonyGraczies.InsertOnSubmit(ikona);
+                        client.DownloadFile("http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/" + ikona1.itemId + ".png", ikona1.itemId + ".png");
+                        ikona1.ikona = ikona1.itemId + ".png";
+                        baza.IkonyPrzedmiotows.InsertOnSubmit(ikona1);
+                    }
+
+                    IkonyPrzedmiotow ikona2 = new IkonyPrzedmiotow
+                    {
+                        itemId = gra.stats.item2,
+                    };
+
+                    if (baza.IkonyPrzedmiotows.Contains(ikona2) == false && ikona2.itemId!=0)
+                    {
+                        client.DownloadFile("http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/" + ikona2.itemId + ".png", ikona2.itemId + ".png");
+                        ikona2.ikona = ikona2.itemId + ".png";
+                        baza.IkonyPrzedmiotows.InsertOnSubmit(ikona2);
+                    }
+
+                    IkonyPrzedmiotow ikona3 = new IkonyPrzedmiotow
+                    {
+                        itemId = gra.stats.item3,
+                    };
+
+                    if (baza.IkonyPrzedmiotows.Contains(ikona3) == false && ikona3.itemId != 0)
+                    {
+                        client.DownloadFile("http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/" + ikona3.itemId + ".png", ikona3.itemId + ".png");
+                        ikona3.ikona = ikona3.itemId + ".png";
+                        baza.IkonyPrzedmiotows.InsertOnSubmit(ikona3);
+                    }
+
+                    IkonyPrzedmiotow ikona4 = new IkonyPrzedmiotow
+                    {
+                        itemId = gra.stats.item4,
+                    };
+
+                    if (baza.IkonyPrzedmiotows.Contains(ikona4) == false && ikona4.itemId != 0)
+                    {
+                        client.DownloadFile("http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/" + ikona4.itemId + ".png", ikona4.itemId + ".png");
+                        ikona4.ikona = ikona4.itemId + ".png";
+                        baza.IkonyPrzedmiotows.InsertOnSubmit(ikona4);
+                    }
+
+                    IkonyPrzedmiotow ikona5 = new IkonyPrzedmiotow
+                    {
+                        itemId = gra.stats.item5,
+                    };
+
+                    if (baza.IkonyPrzedmiotows.Contains(ikona5) == false && ikona5.itemId != 0)
+                    {
+                        client.DownloadFile("http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/" + ikona5.itemId + ".png", ikona5.itemId + ".png");
+                        ikona5.ikona = ikona5.itemId + ".png";
+                        baza.IkonyPrzedmiotows.InsertOnSubmit(ikona5);
+                    }
+
+                    IkonyPrzedmiotow ikona6 = new IkonyPrzedmiotow
+                    {
+                        itemId = gra.stats.item6,
+                    };
+
+                    if (baza.IkonyPrzedmiotows.Contains(ikona6) == false && ikona6.itemId != 0)
+                    {
+                        client.DownloadFile("http://ddragon.leagueoflegends.com/cdn/5.2.1/img/item/" + ikona6.itemId + ".png", ikona6.itemId + ".png");
+                        ikona6.ikona = ikona6.itemId + ".png";
+                        baza.IkonyPrzedmiotows.InsertOnSubmit(ikona6);
+                    }
+
+                    Postacie postac = new Postacie
+                    {
+                        championId = gra.championId,
+                    };
+
+                    if(baza.Postacies.Contains(postac) == false)
+                    {
+                        string postacstring = client.DownloadString("https://global.api.pvp.net/api/lol/static-data/eune/v1.2/champion/" + postac.championId + "?api_key=f4d10937-bd33-42ac-80ef-62290e4755bf");
+                        ChampionJson postacJson = JsonConvert.DeserializeObject<ChampionJson>(postacstring);
+                        postac.name = postacJson.key;
+                        client.DownloadFile("http://ddragon.leagueoflegends.com/cdn/5.2.1/img/champion/" + postac.name + ".png", postac.name + ".png");
+                        postac.ikona = postac.name + ".png";
+                        baza.Postacies.InsertOnSubmit(postac);
                     }
                 }
             }
