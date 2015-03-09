@@ -73,5 +73,31 @@ namespace Projekt_LOL
             baza.Graczes.InsertOnSubmit(gracz);
             baza.SubmitChanges();
         }
+
+        private void buttonAktualizujGry_Click(object sender, EventArgs e)
+        {
+            BazaDataContext baza = new BazaDataContext();
+
+            foreach(Gracze gracz in baza.Graczes)
+            {
+                string grystring = client.DownloadString("https://" + gracz.Regiony.name + ".api.pvp.net/api/lol/" + gracz.Regiony.name + "/v1.3/game/by-summoner/"+gracz.Id+"/recent?api_key=f4d10937-bd33-42ac-80ef-62290e4755bf");
+                ListaGierJson ostatnieGry = JsonConvert.DeserializeObject<ListaGierJson>(grystring);
+
+                foreach(GraJson gra in ostatnieGry.games)
+                {
+                    IkonyCzarow ikonaCzaru = new IkonyCzarow
+                    {
+                        spellId = gra.spell1;
+                    };
+
+                    if (baza.IkonyCzarows.Contains( == false)
+                    {
+                        client.DownloadFile("http://ddragon.leagueoflegends.com/cdn/5.2.1/img/profileicon/" + ikona.profileIconId + ".png", ikona.profileIconId + ".png");
+                        ikonaCzaru. = ikona.profileIconId + ".png";
+                        baza.IkonyGraczies.InsertOnSubmit(ikona);
+                    }
+                }
+            }
+        }
     }
 }

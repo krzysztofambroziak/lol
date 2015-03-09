@@ -34,11 +34,12 @@
             this.buttonDodajGracza = new System.Windows.Forms.Button();
             this.textBoxDodajGracza = new System.Windows.Forms.TextBox();
             this.comboBoxDodajGracza = new System.Windows.Forms.ComboBox();
-            this.bazaDataSet = new Projekt_LOL.bazaDataSet();
             this.regionyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bazaDataSet = new Projekt_LOL.bazaDataSet();
             this.regionyTableAdapter = new Projekt_LOL.bazaDataSetTableAdapters.RegionyTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.bazaDataSet)).BeginInit();
+            this.buttonAktualizujGry = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.regionyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bazaDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -87,25 +88,36 @@
             this.comboBoxDodajGracza.TabIndex = 4;
             this.comboBoxDodajGracza.ValueMember = "Id";
             // 
-            // bazaDataSet
-            // 
-            this.bazaDataSet.DataSetName = "bazaDataSet";
-            this.bazaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // regionyBindingSource
             // 
             this.regionyBindingSource.DataMember = "Regiony";
             this.regionyBindingSource.DataSource = this.bazaDataSet;
             // 
+            // bazaDataSet
+            // 
+            this.bazaDataSet.DataSetName = "bazaDataSet";
+            this.bazaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // regionyTableAdapter
             // 
             this.regionyTableAdapter.ClearBeforeFill = true;
+            // 
+            // buttonAktualizujGry
+            // 
+            this.buttonAktualizujGry.Location = new System.Drawing.Point(12, 288);
+            this.buttonAktualizujGry.Name = "buttonAktualizujGry";
+            this.buttonAktualizujGry.Size = new System.Drawing.Size(138, 20);
+            this.buttonAktualizujGry.TabIndex = 5;
+            this.buttonAktualizujGry.Text = "Aktualizuj gry";
+            this.buttonAktualizujGry.UseVisualStyleBackColor = true;
+            this.buttonAktualizujGry.Click += new System.EventHandler(this.buttonAktualizujGry_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(498, 350);
+            this.Controls.Add(this.buttonAktualizujGry);
             this.Controls.Add(this.comboBoxDodajGracza);
             this.Controls.Add(this.textBoxDodajGracza);
             this.Controls.Add(this.buttonDodajGracza);
@@ -114,8 +126,8 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bazaDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.regionyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bazaDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,6 +143,7 @@
         private bazaDataSet bazaDataSet;
         private System.Windows.Forms.BindingSource regionyBindingSource;
         private bazaDataSetTableAdapters.RegionyTableAdapter regionyTableAdapter;
+        private System.Windows.Forms.Button buttonAktualizujGry;
     }
 }
 
