@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using Newtonsoft.Json;
-
+///////////////////////////////////SCIEZKA LOKALNA/////////////////////
 namespace Projekt_LOL
 {
     public partial class Form1 : Form
@@ -18,9 +18,9 @@ namespace Projekt_LOL
         public Form1()
         {
             InitializeComponent();
-
+            
         }
-        private void button1_Click(object sender, EventArgs e)
+      /*  private void button1_Click(object sender, EventArgs e)
         {
             string content = client.DownloadString("https://eune.api.pvp.net/api/lol/eune/v1.4/summoner/by-name/Klekot56,Mitronus,Hablarox?api_key=f4d10937-bd33-42ac-80ef-62290e4755bf");
             richTextBox1.Text = richTextBox1.Text + content;
@@ -30,7 +30,7 @@ namespace Projekt_LOL
             string content2 = client.DownloadString("https://eune.api.pvp.net/api/lol/eune/v1.3/game/by-summoner/47719350/recent?api_key=f4d10937-bd33-42ac-80ef-62290e4755bf");
             ListaGierJson ostatnieGry = JsonConvert.DeserializeObject<ListaGierJson>(content2);
             richTextBox1.Text = richTextBox1.Text +"\n"+ content2;        
-        }
+        }*/
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -41,6 +41,7 @@ namespace Projekt_LOL
 
         private void buttonDodajGracza_Click(object sender, EventArgs e)
         {
+            listBox1.Items.Clear();
             string content = client.DownloadString("https://"+comboBoxDodajGracza.Text+".api.pvp.net/api/lol/" + comboBoxDodajGracza.Text + "/v1.4/summoner/by-name/" + textBoxDodajGracza.Text + "?api_key=f4d10937-bd33-42ac-80ef-62290e4755bf");
             Dictionary<string, GraczJson> ListaGraczy = JsonConvert.DeserializeObject<Dictionary<string, GraczJson>>(content);
 
@@ -83,6 +84,13 @@ namespace Projekt_LOL
 
             baza.Graczes.InsertOnSubmit(gracz);
             baza.SubmitChanges();
+
+                foreach(Gracze g in baza.Graczes)
+                {
+                    listBox1.Items.Add(g);
+                }
+                listBox1.DisplayMember = "name";
+
 
             }
         }
@@ -250,6 +258,27 @@ namespace Projekt_LOL
                 }
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            foreach (Gracze g in listBox1.SelectedItems)
+            {
+                Form2 okno = new Form2(g);
+                //okno.FormClosed += Form1_FormClosed;
+                okno.Show();
+            }
+         /*
+            BazaDataContext baza = new BazaDataContext();
+            Gracze g = listBox1.SelectedItem as Gracze;
+            Kontrolki generator = new Kontrolki(this);
+            var ilosc = baza.Gries.Where(s => s.summonerId == g.Id).Select(a=> a.gameId);
+            int iloscc = ilosc.Count();
+            groupBox1.Text = g.name;
+            generator.GenerowanieButtonow(iloscc, g.name,g.Id);
+           */
+        }
+
+
     }
 
 }

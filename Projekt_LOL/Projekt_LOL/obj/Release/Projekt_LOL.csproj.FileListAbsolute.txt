@@ -27,3 +27,31 @@ C:\Users\Krzysiek\Documents\GitHub\lol\Projekt_LOL\Projekt_LOL\bin\Release\Newto
 C:\Users\Bartek\Desktop\Projekt LoL\lol\Projekt_LOL\Projekt_LOL\bin\Release\Projekt_LOL.exe.config
 C:\Users\Bartek\Desktop\Projekt LoL\lol\Projekt_LOL\Projekt_LOL\obj\Release\Projekt_LOL.exe
 C:\Users\Bartek\Desktop\Projekt LoL\lol\Projekt_LOL\Projekt_LOL\obj\Release\Projekt_LOL.pdb
+C:\Users\Bartek\Desktop\lol\Projekt_LOL\Projekt_LOL\bin\Release\Projekt_LOL.exe.config
+C:\Users\Bartek\Desktop\lol\Projekt_LOL\Projekt_LOL\obj\Release\Projekt_LOL.exe
+C:\Users\Bartek\Desktop\lol\Projekt_LOL\Projekt_LOL\obj\Release\Projekt_LOL.pdb
+C:\Users\Bartek\Desktop\lol\Projekt_LOL\Projekt_LOL\bin\Release\Baza.mdf
+C:\Users\Bartek\Desktop\lol\Projekt_LOL\Projekt_LOL\bin\Release\Baza_log.ldf
+C:\Users\Bartek\Desktop\lol\Projekt_LOL\Projekt_LOL\bin\Release\Projekt_LOL.exe
+C:\Users\Bartek\Desktop\lol\Projekt_LOL\Projekt_LOL\bin\Release\Projekt_LOL.pdb
+C:\Users\Bartek\Desktop\lol\Projekt_LOL\Projekt_LOL\bin\Release\Newtonsoft.Json.dll
+C:\Users\Bartek\Desktop\lol\Projekt_LOL\Projekt_LOL\bin\Release\Newtonsoft.Json.xml
+C:\Users\Bartek\Desktop\lol\Projekt_LOL\Projekt_LOL\obj\Release\Projekt_LOL.csprojResolveAssemblyReference.cache
+C:\Users\Bartek\Desktop\lol\Projekt_LOL\Projekt_LOL\obj\Release\Projekt_LOL.Form1.resources
+C:\Users\Bartek\Desktop\lol\Projekt_LOL\Projekt_LOL\obj\Release\Projekt_LOL.Properties.Resources.resources
+C:\Users\Bartek\Desktop\lol\Projekt_LOL\Projekt_LOL\obj\Release\Projekt_LOL.csproj.GenerateResource.Cache
+C:\Users\Bartek\Desktop\Projekty\Projekt inżynieria\lol\Projekt_LOL\Projekt_LOL\bin\Release\Projekt_LOL.exe.config
+C:\Users\Bartek\Desktop\Projekty\Projekt inżynieria\lol\Projekt_LOL\Projekt_LOL\obj\Release\Projekt_LOL.exe
+C:\Users\Bartek\Desktop\Projekty\Projekt inżynieria\lol\Projekt_LOL\Projekt_LOL\obj\Release\Projekt_LOL.pdb
+C:\Users\Bartek\Desktop\Projekty\Projekt inżynieria\lol\Projekt_LOL\Projekt_LOL\bin\Release\Baza.mdf
+C:\Users\Bartek\Desktop\Projekty\Projekt inżynieria\lol\Projekt_LOL\Projekt_LOL\bin\Release\Baza_log.ldf
+C:\Users\Bartek\Desktop\Projekty\Projekt inżynieria\lol\Projekt_LOL\Projekt_LOL\bin\Release\Projekt_LOL.exe
+C:\Users\Bartek\Desktop\Projekty\Projekt inżynieria\lol\Projekt_LOL\Projekt_LOL\bin\Release\Projekt_LOL.pdb
+C:\Users\Bartek\Desktop\Projekty\Projekt inżynieria\lol\Projekt_LOL\Projekt_LOL\bin\Release\Newtonsoft.Json.dll
+C:\Users\Bartek\Desktop\Projekty\Projekt inżynieria\lol\Projekt_LOL\Projekt_LOL\bin\Release\Newtonsoft.Json.xml
+C:\Users\Bartek\Desktop\Projekty\Projekt inżynieria\lol\Projekt_LOL\Projekt_LOL\obj\Release\Projekt_LOL.csprojResolveAssemblyReference.cache
+C:\Users\Bartek\Desktop\Projekty\Projekt inżynieria\lol\Projekt_LOL\Projekt_LOL\obj\Release\Projekt_LOL.Form1.resources
+C:\Users\Bartek\Desktop\Projekty\Projekt inżynieria\lol\Projekt_LOL\Projekt_LOL\obj\Release\Projekt_LOL.Properties.Resources.resources
+C:\Users\Bartek\Desktop\Projekty\Projekt inżynieria\lol\Projekt_LOL\Projekt_LOL\obj\Release\Projekt_LOL.csproj.GenerateResource.Cache
+C:\Users\Bartek\Desktop\Projekty\Projekt inżynieria\lol\Projekt_LOL\Projekt_LOL\obj\Release\Projekt_LOL.Form2.resources
+C:\Users\Bartek\Desktop\Projekty\Projekt inżynieria\lol\Projekt_LOL\Projekt_LOL\obj\Release\Projekt_LOL.UserControlGra.resources
