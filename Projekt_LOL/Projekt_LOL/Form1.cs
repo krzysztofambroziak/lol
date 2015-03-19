@@ -261,21 +261,13 @@ namespace Projekt_LOL
 
         private void button2_Click(object sender, EventArgs e)
         {
+            panel1.Controls.Clear();
             foreach (Gracze g in listBox1.SelectedItems)
             {
-                Form2 okno = new Form2(g);
-                //okno.FormClosed += Form1_FormClosed;
-                okno.Show();
+                Staty s = new Staty(this,g);
+                s.StatyGenerator(this, g);
             }
-         /*
-            BazaDataContext baza = new BazaDataContext();
-            Gracze g = listBox1.SelectedItem as Gracze;
-            Kontrolki generator = new Kontrolki(this);
-            var ilosc = baza.Gries.Where(s => s.summonerId == g.Id).Select(a=> a.gameId);
-            int iloscc = ilosc.Count();
-            groupBox1.Text = g.name;
-            generator.GenerowanieButtonow(iloscc, g.name,g.Id);
-           */
+            
         }
 
 

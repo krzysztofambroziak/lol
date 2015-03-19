@@ -40,6 +40,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.regionyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bazaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
@@ -47,7 +48,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 167);
+            this.button1.Location = new System.Drawing.Point(787, 212);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
@@ -57,7 +58,7 @@
             // 
             // buttonDodajGracza
             // 
-            this.buttonDodajGracza.Location = new System.Drawing.Point(299, 91);
+            this.buttonDodajGracza.Location = new System.Drawing.Point(596, 245);
             this.buttonDodajGracza.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDodajGracza.Name = "buttonDodajGracza";
             this.buttonDodajGracza.Size = new System.Drawing.Size(184, 25);
@@ -68,7 +69,7 @@
             // 
             // textBoxDodajGracza
             // 
-            this.textBoxDodajGracza.Location = new System.Drawing.Point(276, 124);
+            this.textBoxDodajGracza.Location = new System.Drawing.Point(596, 303);
             this.textBoxDodajGracza.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxDodajGracza.Name = "textBoxDodajGracza";
             this.textBoxDodajGracza.Size = new System.Drawing.Size(185, 22);
@@ -79,7 +80,7 @@
             this.comboBoxDodajGracza.DataSource = this.regionyBindingSource;
             this.comboBoxDodajGracza.DisplayMember = "name";
             this.comboBoxDodajGracza.FormattingEnabled = true;
-            this.comboBoxDodajGracza.Location = new System.Drawing.Point(478, 122);
+            this.comboBoxDodajGracza.Location = new System.Drawing.Point(814, 302);
             this.comboBoxDodajGracza.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxDodajGracza.Name = "comboBoxDodajGracza";
             this.comboBoxDodajGracza.Size = new System.Drawing.Size(80, 24);
@@ -102,7 +103,7 @@
             // 
             // buttonAktualizujGry
             // 
-            this.buttonAktualizujGry.Location = new System.Drawing.Point(299, 58);
+            this.buttonAktualizujGry.Location = new System.Drawing.Point(595, 212);
             this.buttonAktualizujGry.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAktualizujGry.Name = "buttonAktualizujGry";
             this.buttonAktualizujGry.Size = new System.Drawing.Size(184, 25);
@@ -113,7 +114,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(285, 12);
+            this.button2.Location = new System.Drawing.Point(595, 166);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(222, 39);
             this.button2.TabIndex = 6;
@@ -125,7 +126,7 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(12, 12);
+            this.listBox1.Location = new System.Drawing.Point(595, 12);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(257, 148);
             this.listBox1.TabIndex = 7;
@@ -135,11 +136,20 @@
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(576, 314);
+            this.panel1.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(571, 200);
+            this.ClientSize = new System.Drawing.Size(907, 341);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.buttonAktualizujGry);
@@ -172,6 +182,7 @@
         private System.Windows.Forms.Button button2;
         public System.Windows.Forms.ListBox listBox1;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
+        public System.Windows.Forms.Panel panel1;
     }
 }
 
